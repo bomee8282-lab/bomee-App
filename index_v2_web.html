@@ -1,0 +1,2427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Your Pregnancy Benefits | bomee</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+  :root {
+    /* ── Colors ── */
+    --color-purple-10: #F6F4FF;
+    --color-purple-20: #EDE9FB;
+    --color-purple-40: #C8BFF5;
+    --color-purple-60: #7E6BE9;
+    --color-purple-70: #6455C4;
+    --color-orange-10: #FFF5EF;
+    --color-orange-60: #FD6B17;
+    --color-grey-10:  #F7F7F8;
+    --color-grey-20:  #EBEBED;
+    --color-grey-30:  #D9D9DC;
+    --color-grey-40:  #C2C2C6;
+    --color-grey-50:  #A8A8AE;
+    --color-grey-60:  #8E8E96;
+    --color-grey-70:  #6F6F78;
+    --color-grey-80:  #515158;
+    --color-grey-100: #1A1B1E;
+    --color-blue-60:  #2D7DD2;
+    --color-green-60: #0F8050;
+    --color-green-10: #E6F9F1;
+    --color-red-60:   #E4444C;
+    --color-yellow-60:#F2A93B;
+
+    --color-bg-base:              #FFFFFF;
+    --color-bg-subtle:            var(--color-grey-10);
+    --color-bg-subtler:           var(--color-grey-20);
+    --color-bg-brand-primary:     var(--color-purple-60);
+    --color-bg-brand-subtle:      var(--color-purple-20);
+    --color-bg-brand-subtlest:    var(--color-purple-10);
+    --color-bg-hero:              #BFE3F2;
+    --color-border-default:       var(--color-grey-20);
+    --color-border-subtle:        var(--color-grey-30);
+    --color-text-primary:         var(--color-grey-100);
+    --color-text-secondary:       var(--color-grey-80);
+    --color-text-tertiary:        var(--color-grey-60);
+    --color-text-placeholder:     var(--color-grey-50);
+    --color-text-brand-primary:   var(--color-purple-60);
+    --color-text-on-brand:        #FFFFFF;
+
+    --font-family-primary: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    --fontweight-regular:  400;
+    --fontweight-medium:   500;
+    --fontweight-semibold: 600;
+    --fontweight-bold:     700;
+
+    --fontsize-xxxs: 11px; --fontsize-xxs: 12px; --fontsize-xs: 13px;
+    --fontsize-sm: 14px;   --fontsize-md: 15px;  --fontsize-ad: 16px;
+    --fontsize-al: 18px;   --fontsize-lg: 20px;  --fontsize-xxl: 24px;
+    --fontsize-display: 28px;
+
+    --lineheight-sm: 1.2; --lineheight-md: 1.3; --lineheight-lg: 1.5;
+    --radius-4: 4px; --radius-8: 8px; --radius-12: 12px; --radius-16: 16px;
+    --radius-20: 20px; --radius-24: 24px; --radius-full: 9999px;
+    --dimension-margin: 20px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { background: var(--color-grey-10); }
+  body {
+    font-family: var(--font-family-primary);
+    font-size: var(--fontsize-md);
+    line-height: var(--lineheight-lg);
+    background: var(--color-bg-base);
+    color: var(--color-text-primary);
+    max-width: 520px;
+    margin: 0 auto;
+    padding-bottom: 80px; /* space for sticky CTA */
+    -webkit-font-smoothing: antialiased;
+  }
+  button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ── HEADER (web) ── */
+  header.web-header {
+    background: var(--color-bg-base);
+    padding: 14px 20px;
+    display: flex; align-items: center; justify-content: center;
+    border-bottom: 1px solid var(--color-border-default);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .logo {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-weight: var(--fontweight-bold); font-size: var(--fontsize-al);
+    color: var(--color-text-brand-primary);
+  }
+  .logo-mark {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-purple-60) 0%, var(--color-orange-60) 100%);
+    display: inline-block;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    background: var(--color-bg-hero);
+    padding: 24px 20px 0;
+    overflow: hidden;
+    min-height: 320px;
+  }
+  .hero-copy { position: relative; z-index: 2; max-width: 60%; }
+  .hero-title {
+    font-size: var(--fontsize-display);
+    font-weight: var(--fontweight-bold);
+    line-height: 1.2;
+    color: var(--color-text-primary);
+  }
+  .hero-title .price {
+    background: var(--color-purple-60); color: #fff;
+    padding: 0 8px; border-radius: var(--radius-4);
+    display: inline-block;
+  }
+  .hero-sub {
+    margin-top: 8px;
+    font-size: var(--fontsize-md);
+    color: var(--color-text-secondary);
+  }
+  .persona-dropdown {
+    margin-top: 16px;
+    display: inline-flex; flex-direction: column; gap: 2px;
+    background: rgba(255,255,255,0.85);
+    padding: 8px 12px; border-radius: var(--radius-12);
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.6);
+  }
+  .persona-dropdown .row {
+    display: flex; align-items: center; gap: 6px;
+    font-weight: var(--fontweight-semibold);
+    font-size: var(--fontsize-ad);
+    color: var(--color-text-primary);
+  }
+  .persona-dropdown .sub {
+    font-size: var(--fontsize-xs);
+    color: var(--color-text-tertiary);
+  }
+  .hero-image {
+    position: absolute;
+    right: -10px;
+    bottom: -140px;
+    width: 100%;
+    max-width: 360px;
+    z-index: 1;
+  }
+  .hero-image img { width: 100%; height: auto; display: block; }
+  .hero-image-placeholder {
+    width: 100%; height: 240px;
+    background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.2) 100%);
+    border-radius: 12px 0 0 0;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.7); font-size: var(--fontsize-xs);
+  }
+
+  /* ── DUAL STAT CARDS ── */
+  .stat-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 16px 20px 20px;
+    background: var(--color-bg-hero);
+  }
+  .stat-card {
+    background: #fff;
+    border-radius: var(--radius-12);
+    padding: 12px;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .stat-card:active { transform: scale(0.98); }
+  .stat-card-head {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .stat-card-icon {
+    width: 24px; height: 24px; border-radius: 6px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  .stat-card-icon.checklist { background: var(--color-purple-20); color: var(--color-purple-60); }
+  .stat-card-icon.benefit { background: var(--color-orange-10); color: var(--color-orange-60); }
+  .stat-card-goto {
+    font-size: var(--fontsize-xxs);
+    color: var(--color-text-tertiary);
+    display: inline-flex; align-items: center; gap: 2px;
+  }
+  .stat-card-label {
+    font-size: var(--fontsize-xs);
+    color: var(--color-text-secondary);
+    font-weight: var(--fontweight-medium);
+  }
+  .stat-card-value {
+    font-size: var(--fontsize-lg);
+    font-weight: var(--fontweight-bold);
+    color: var(--color-text-primary);
+  }
+  .stat-card-value .accent { color: var(--color-purple-60); }
+  .stat-card-value .accent-orange { color: var(--color-orange-60); }
+
+  /* ── SECTION ── */
+  .section {
+    padding: 24px 20px 8px;
+    background: var(--color-bg-base);
+  }
+  .section-title {
+    font-size: var(--fontsize-al);
+    font-weight: var(--fontweight-bold);
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  /* ── BREAST PUMPS SECTION ── */
+  .bp-header {
+    padding: 24px 20px 12px;
+    background: var(--color-bg-base);
+  }
+  .bp-header .section-title { margin-bottom: 8px; }
+  .bp-desc {
+    font-size: var(--fontsize-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+  .bp-desc .more-link {
+    color: var(--color-purple-60);
+    text-decoration: underline;
+    font-weight: var(--fontweight-medium);
+  }
+  /* purple background panel for the carousel */
+  .bp-carousel-wrap {
+    background: var(--color-bg-brand-subtlest);
+    padding: 20px 0 16px;
+  }
+  .bp-carousel {
+    display: flex;
+    gap: 12px;
+    padding: 0 20px 8px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    cursor: grab;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-grey-30) transparent;
+  }
+  .bp-carousel.dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+  .bp-carousel::-webkit-scrollbar { height: 6px; }
+  .bp-carousel::-webkit-scrollbar-track { background: transparent; }
+  .bp-carousel::-webkit-scrollbar-thumb { background: var(--color-grey-30); border-radius: 3px; }
+  .bp-card {
+    flex: 0 0 calc(100% - 80px);
+    scroll-snap-align: center;
+    background: var(--color-bg-brand-subtle);
+    border-radius: var(--radius-16);
+    padding: 20px 16px 18px;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
+  .bp-card-label {
+    font-size: var(--fontsize-sm);
+    color: var(--color-purple-60);
+    font-weight: var(--fontweight-semibold);
+    margin-bottom: 12px;
+  }
+  .bp-card-image {
+    width: 160px; height: 160px; border-radius: 50%;
+    background: #fff;
+    margin: 0 0 14px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    color: var(--color-text-tertiary); font-size: var(--fontsize-xxs);
+  }
+  .bp-card-image img { width: 100%; height: 100%; object-fit: contain; }
+  .bp-card-title {
+    font-size: var(--fontsize-al);
+    font-weight: var(--fontweight-bold);
+    margin-bottom: 14px;
+  }
+  .bp-card-cta {
+    width: 100%;
+    background: var(--color-bg-brand-primary);
+    color: var(--color-text-on-brand);
+    font-weight: var(--fontweight-bold);
+    font-size: var(--fontsize-ad);
+    padding: 14px;
+    border-radius: var(--radius-full);
+    margin-bottom: 8px;
+  }
+  .bp-card-alts {
+    display: flex; flex-direction: column; gap: 4px;
+    width: 100%;
+  }
+  .bp-card-alts a {
+    font-size: var(--fontsize-sm);
+    color: var(--color-text-secondary);
+    text-decoration: underline;
+    text-align: center;
+  }
+  /* dots */
+  .bp-dots {
+    display: flex; justify-content: center; gap: 6px;
+    padding: 16px 0 4px;
+  }
+  .bp-dots .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--color-grey-30);
+    transition: background 0.2s;
+  }
+  .bp-dots .dot.active {
+    background: var(--color-purple-60);
+  }
+  /* product list below carousel */
+  .bp-product-list {
+    background: var(--color-bg-base);
+    padding: 0 20px 24px;
+  }
+  .bp-product-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-border-default);
+    cursor: pointer;
+  }
+  .bp-product-row:last-child { border-bottom: none; }
+  .bp-product-thumb {
+    flex-shrink: 0;
+    width: 56px; height: 56px;
+    border-radius: var(--radius-8);
+    background: var(--color-bg-subtle);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .bp-product-thumb img { width: 100%; height: 100%; object-fit: contain; }
+  .bp-product-info { flex: 1; min-width: 0; }
+  .bp-product-name {
+    font-size: var(--fontsize-md);
+    font-weight: var(--fontweight-bold);
+    margin-bottom: 2px;
+  }
+  .bp-product-supplier {
+    font-size: var(--fontsize-xs);
+    color: var(--color-text-tertiary);
+  }
+  .bp-product-price {
+    flex-shrink: 0;
+    background: #fff;
+    border: 1px solid var(--color-border-subtle);
+    color: var(--color-text-primary);
+    padding: 8px 18px;
+    border-radius: var(--radius-full);
+    font-size: var(--fontsize-sm);
+    font-weight: var(--fontweight-semibold);
+  }
+
+  /* ── LIST SECTION (ACA Paid / 무보험) ── */
+  .benefit-list {
+    display: flex; flex-direction: column; gap: 1px;
+    background: var(--color-grey-20);
+    border-radius: var(--radius-12);
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .benefit-row {
+    background: #fff;
+    padding: 14px 16px;
+    display: flex; align-items: center; gap: 12px;
+    cursor: pointer;
+  }
+  .benefit-row:hover { background: var(--color-grey-10); }
+  .benefit-row-content { flex: 1; min-width: 0; }
+  .benefit-row-title {
+    font-size: var(--fontsize-md);
+    font-weight: var(--fontweight-semibold);
+    margin-bottom: 2px;
+  }
+  .benefit-row-desc {
+    font-size: var(--fontsize-xs);
+    color: var(--color-text-tertiary);
+    line-height: 1.4;
+  }
+  .benefit-row-action {
+    flex-shrink: 0;
+    background: var(--color-bg-subtle);
+    color: var(--color-text-secondary);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    font-size: var(--fontsize-xs);
+    font-weight: var(--fontweight-medium);
+  }
+
+  /* ── AMAZON FSA/HSA CAROUSEL ── */
+  .product-carousel {
+    display: flex; gap: 12px;
+    padding: 4px 20px 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    cursor: grab;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-grey-30) transparent;
+  }
+  .product-carousel.dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+  .product-carousel::-webkit-scrollbar { height: 6px; }
+  .product-carousel::-webkit-scrollbar-track { background: transparent; }
+  .product-carousel::-webkit-scrollbar-thumb { background: var(--color-grey-30); border-radius: 3px; }
+  .product-card {
+    flex: 0 0 38%;
+    scroll-snap-align: start;
+    display: flex; flex-direction: column;
+    cursor: pointer;
+  }
+  .product-img {
+    width: 100%; aspect-ratio: 1;
+    background: var(--color-grey-20);
+    border-radius: var(--radius-8);
+    margin-bottom: 8px;
+  }
+  .product-brand {
+    font-size: var(--fontsize-xxs);
+    color: var(--color-text-tertiary);
+    margin-bottom: 2px;
+  }
+  .product-name {
+    font-size: var(--fontsize-xs);
+    color: var(--color-text-primary);
+    margin-bottom: 4px;
+    line-height: 1.3;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .product-price-row {
+    display: flex; align-items: baseline; gap: 6px;
+    margin-bottom: 4px;
+  }
+  .product-price {
+    font-size: var(--fontsize-md);
+    font-weight: var(--fontweight-bold);
+    color: var(--color-red-60);
+  }
+  .product-price-original {
+    font-size: var(--fontsize-xxs);
+    color: var(--color-text-tertiary);
+    text-decoration: line-through;
+  }
+  .product-rating {
+    font-size: var(--fontsize-xxs);
+    color: var(--color-text-tertiary);
+  }
+  .product-rating .star { color: var(--color-yellow-60); }
+
+  /* ── PERSONALIZATION FORM ── */
+  .person-form {
+    background: var(--color-bg-base);
+    padding: 8px 20px 24px;
+  }
+  .form-field {
+    background: var(--color-bg-subtle);
+    border-radius: var(--radius-12);
+    padding: 14px 16px;
+    margin-bottom: 8px;
+    display: flex; align-items: center; justify-content: space-between;
+    color: var(--color-text-placeholder);
+    font-size: var(--fontsize-md);
+    cursor: pointer;
+  }
+  .form-field.filled { color: var(--color-text-primary); font-weight: var(--fontweight-medium); }
+  .form-field input { border: none; background: transparent; font: inherit; color: inherit; flex: 1; outline: none; }
+  .form-checkbox {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 4px;
+    margin-bottom: 4px;
+    cursor: pointer;
+  }
+  .form-checkbox .box {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--color-purple-60);
+    color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 12px;
+  }
+  .form-checkbox.unchecked .box {
+    background: #fff;
+    border: 1.5px solid var(--color-grey-30);
+    color: transparent;
+  }
+  .form-cta {
+    width: 100%;
+    background: var(--color-purple-60);
+    color: #fff;
+    font-weight: var(--fontweight-semibold);
+    font-size: var(--fontsize-ad);
+    padding: 16px;
+    border-radius: var(--radius-12);
+    margin-top: 8px;
+  }
+
+  /* ── CHECKLIST ── */
+  .checklist-section { padding: 24px 20px; background: var(--color-bg-base); }
+  .checklist-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .checklist-head .more {
+    font-size: var(--fontsize-xs);
+    color: var(--color-text-tertiary);
+  }
+  .checklist {
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .checklist-item {
+    display: flex; gap: 10px;
+    cursor: pointer;
+    padding: 4px 0;
+  }
+  .check-circle {
+    flex-shrink: 0;
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--color-purple-60);
+    color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .checklist-item.unchecked .check-circle {
+    background: #fff;
+    border: 1.5px solid var(--color-grey-30);
+    color: transparent;
+  }
+  .checklist-content { flex: 1; }
+  .checklist-title {
+    font-size: var(--fontsize-md);
+    font-weight: var(--fontweight-semibold);
+    margin-bottom: 2px;
+  }
+  .checklist-item.checked .checklist-title { text-decoration: line-through; color: var(--color-text-tertiary); }
+  .checklist-desc {
+    font-size: var(--fontsize-xs);
+    color: var(--color-text-tertiary);
+    line-height: 1.4;
+  }
+  .checklist-item.checked .checklist-desc { text-decoration: line-through; }
+
+  /* ── FSA/HSA categories ── */
+  .fsa-section {
+    padding: 24px 20px;
+    background: var(--color-bg-base);
+  }
+  .fsa-list {
+    display: flex; flex-direction: column;
+    border-top: 1px solid var(--color-border-default);
+  }
+  .fsa-row {
+    padding: 14px 4px;
+    border-bottom: 1px solid var(--color-border-default);
+    display: flex; align-items: center; gap: 12px;
+    cursor: pointer;
+  }
+  .fsa-row-content { flex: 1; min-width: 0; }
+  .fsa-row-title {
+    font-size: var(--fontsize-md);
+    font-weight: var(--fontweight-semibold);
+    margin-bottom: 2px;
+  }
+  .fsa-row-desc {
+    font-size: var(--fontsize-xs);
+    color: var(--color-text-tertiary);
+    line-height: 1.4;
+  }
+  .chev {
+    flex-shrink: 0;
+    color: var(--color-grey-40);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--color-bg-base);
+    padding: 24px 20px 32px;
+    border-top: 1px solid var(--color-border-default);
+  }
+  .footer-disclaimer {
+    font-size: var(--fontsize-xxs);
+    color: var(--color-text-tertiary);
+    line-height: 1.5;
+    background: var(--color-bg-subtle);
+    padding: 16px;
+    border-radius: var(--radius-8);
+    margin-bottom: 20px;
+  }
+  .footer-disclaimer .em {
+    color: var(--color-text-secondary);
+    font-weight: var(--fontweight-semibold);
+  }
+  .footer-brand { margin-bottom: 12px; }
+  .footer-meta {
+    font-size: var(--fontsize-xxs);
+    color: var(--color-text-tertiary);
+    line-height: 1.6;
+  }
+  .footer-meta a { text-decoration: underline; display: block; margin: 2px 0; }
+
+  /* ── STICKY BOTTOM CTA (web) ── */
+  .sticky-cta {
+    position: fixed;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 100%; max-width: 520px;
+    background: #fff;
+    border-top: 1px solid var(--color-border-default);
+    padding: 12px 20px;
+    display: flex; align-items: center; gap: 8px;
+    z-index: 50;
+  }
+  .sticky-cta .picker {
+    background: var(--color-bg-subtle);
+    color: var(--color-text-secondary);
+    padding: 12px 14px;
+    border-radius: var(--radius-12);
+    font-size: var(--fontsize-sm);
+    flex-shrink: 0;
+    display: inline-flex; align-items: center; gap: 4px;
+    cursor: pointer;
+  }
+  .sticky-cta .submit {
+    flex: 1;
+    background: var(--color-purple-60);
+    color: #fff;
+    font-weight: var(--fontweight-semibold);
+    font-size: var(--fontsize-md);
+    padding: 12px;
+    border-radius: var(--radius-12);
+  }
+
+  /* ── See All pumps button ── */
+  .see-all-btn {
+    display: block;
+    margin: 4px 20px 16px;
+    width: calc(100% - 40px);
+    padding: 14px;
+    background: #fff;
+    border: 1.5px solid var(--color-purple-40);
+    color: var(--color-purple-60);
+    border-radius: var(--radius-12);
+    font-size: var(--fontsize-md);
+    font-weight: var(--fontweight-semibold);
+    text-align: center;
+    cursor: pointer;
+  }
+  .see-all-btn:hover { background: var(--color-bg-brand-subtlest); }
+
+  /* ── PUMP LIST OVERLAY ── */
+  .pump-list-overlay {
+    position: fixed;
+    top: 0; left: 50%;
+    transform: translate(-50%, 100%);
+    width: 100%; max-width: 520px;
+    height: 100vh;
+    background: var(--color-bg-base);
+    z-index: 300;
+    transition: transform 0.3s ease;
+    display: flex; flex-direction: column;
+  }
+  .pump-list-overlay.show { transform: translate(-50%, 0); }
+  .pump-list-body {
+    flex: 1;
+    overflow-y: auto;
+    background: var(--color-bg-base);
+  }
+  .pump-banner {
+    margin: 8px 16px 0;
+    padding: 10px 12px;
+    background: var(--color-bg-subtle);
+    border-radius: var(--radius-8);
+    font-size: var(--fontsize-xs);
+    color: var(--color-text-secondary);
+    display: flex; align-items: flex-start; gap: 8px;
+    line-height: 1.5;
+  }
+  .pump-banner.upgrade {
+    background: var(--color-bg-brand-subtlest);
+    border: 1px solid var(--color-purple-20);
+  }
+  .pump-banner-icon { flex-shrink: 0; margin-top: 1px; }
+  .pump-banner-body { flex: 1; }
+  .pump-banner-body strong { color: var(--color-text-primary); }
+  .pump-banner-close {
+    flex-shrink: 0;
+    color: var(--color-text-tertiary);
+    cursor: pointer;
+    padding: 0 2px;
+  }
+  .pump-meta {
+    padding: 16px 16px 12px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px;
+  }
+  .pump-meta-count {
+    font-size: var(--fontsize-xs);
+    color: var(--color-text-secondary);
+  }
+  .pump-actions { display: flex; align-items: center; gap: 8px; }
+  .pump-filter-btn {
+    background: var(--color-purple-60);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: var(--radius-8);
+    font-size: var(--fontsize-sm);
+    font-weight: var(--fontweight-semibold);
+    display: inline-flex; align-items: center; gap: 6px;
+    cursor: pointer;
+  }
+  .pump-sort {
+    background: #fff;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-8);
+    padding: 8px 28px 8px 10px;
+    font-family: inherit;
+    font-size: var(--fontsize-xs);
+    color: var(--color-text-secondary);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 16 16' fill='none' stroke='%238E8E96' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+  /* filter chips */
+  .pump-filter-chips {
+    display: flex; gap: 8px;
+    padding: 0 16px 14px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .pump-filter-chips::-webkit-scrollbar { display: none; }
+  .pump-chip {
+    flex-shrink: 0;
+    padding: 7px 14px;
+    border-radius: var(--radius-full);
+    background: #fff;
+    border: 1px solid var(--color-border-subtle);
+    color: var(--color-text-secondary);
+    font-size: var(--fontsize-xs);
+    font-weight: var(--fontweight-medium);
+    cursor: pointer;
+  }
+  .pump-chip.active {
+    background: var(--color-purple-60);
+    color: #fff;
+    border-color: var(--color-purple-60);
+  }
+  /* grid */
+  .pump-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 0 16px 32px;
+  }
+  .pump-grid-card {
+    background: #fff;
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius-12);
+    padding: 12px;
+    position: relative;
+    display: flex; flex-direction: column;
+  }
+  .pump-grid-image {
+    width: 100%; aspect-ratio: 1;
+    background: #fff;
+    margin-bottom: 10px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    color: var(--color-text-tertiary);
+    font-size: var(--fontsize-xxs);
+  }
+  .pump-grid-image img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .pump-grid-brand {
+    font-size: var(--fontsize-xxs);
+    color: var(--color-text-tertiary);
+    font-weight: var(--fontweight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+  .pump-grid-name {
+    font-size: var(--fontsize-xs);
+    color: var(--color-text-primary);
+    font-weight: var(--fontweight-medium);
+    margin-bottom: 6px;
+    line-height: 1.35;
+    min-height: 32px;
+  }
+  .pump-grid-rating {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: var(--fontsize-xxs);
+    color: var(--color-text-tertiary);
+    margin-bottom: 8px;
+  }
+  .pump-grid-rating .star { color: var(--color-yellow-60); }
+  .pump-grid-cta {
+    width: 100%;
+    background: var(--color-purple-60);
+    color: #fff;
+    padding: 10px 8px;
+    border-radius: var(--radius-full);
+    font-size: var(--fontsize-xs);
+    font-weight: var(--fontweight-bold);
+    margin-top: auto;
+    margin-bottom: 6px;
+    text-align: center;
+    line-height: 1.3;
+    white-space: normal;
+  }
+  .pump-grid-alts {
+    display: flex; flex-direction: column; gap: 3px;
+    width: 100%;
+    text-align: center;
+  }
+  .pump-grid-alts a {
+    font-size: var(--fontsize-xxs);
+    color: var(--color-text-secondary);
+    text-decoration: underline;
+  }
+
+  /* ── ORDER OVERLAY (Bundle / Accessories) ── */
+  .order-overlay {
+    position: fixed;
+    top: 0; left: 50%;
+    transform: translate(-50%, 100%);
+    width: 100%; max-width: 520px;
+    height: 100vh;
+    background: var(--color-bg-subtle);
+    z-index: 300;
+    transition: transform 0.3s ease;
+    display: flex; flex-direction: column;
+  }
+  .order-overlay.show { transform: translate(-50%, 0); }
+  .order-header {
+    background: #fff;
+    padding: 14px 16px;
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid var(--color-border-default);
+    flex-shrink: 0;
+  }
+  .order-back {
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--color-text-primary);
+  }
+  .order-title {
+    font-size: var(--fontsize-ad);
+    font-weight: var(--fontweight-bold);
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .order-body {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 80px; /* room for sticky CTA */
+  }
+  /* selected pump pinned summary */
+  .order-selected {
+    background: #fff;
+    padding: 14px 20px;
+    display: flex; align-items: center; gap: 12px;
+    border-bottom: 1px solid var(--color-border-default);
+  }
+  .order-selected-thumb {
+    width: 56px; height: 56px;
+    border-radius: var(--radius-8);
+    background: var(--color-bg-brand-subtlest);
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .order-selected-thumb img { width: 100%; height: 100%; object-fit: contain; }
+  .order-selected-info { flex: 1; min-width: 0; }
+  .order-selected-label {
+    font-size: var(--fontsize-xxs);
+    color: var(--color-purple-60);
+    font-weight: var(--fontweight-semibold);
+    margin-bottom: 2px;
+  }
+  .order-selected-name {
+    font-size: var(--fontsize-md);
+    font-weight: var(--fontweight-bold);
+  }
+  .order-selected-price {
+    font-size: var(--fontsize-sm);
+    color: var(--color-red-60);
+    font-weight: var(--fontweight-bold);
+    flex-shrink: 0;
+  }
+  /* section group */
+  .order-section {
+    padding: 20px 0 12px;
+  }
+  .order-section-title {
+    font-size: var(--fontsize-md);
+    font-weight: var(--fontweight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: 12px;
+    padding: 0 20px;
+  }
+  /* horizontal carousel for cards */
+  .order-carousel {
+    display: flex;
+    gap: 12px;
+    padding: 0 20px 8px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    cursor: grab;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-grey-30) transparent;
+  }
+  .order-carousel.dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+  .order-carousel::-webkit-scrollbar { height: 6px; }
+  .order-carousel::-webkit-scrollbar-track { background: transparent; }
+  .order-carousel::-webkit-scrollbar-thumb { background: var(--color-grey-30); border-radius: 3px; }
+  /* product card style (per image) */
+  .order-card {
+    background: #fff;
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius-12);
+    padding: 14px;
+    flex: 0 0 65%;
+    max-width: 240px;
+    scroll-snap-align: start;
+    display: flex; flex-direction: column;
+  }
+  .order-card-image {
+    width: 100%; height: 110px;
+    background: var(--color-bg-subtle);
+    border-radius: var(--radius-8);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    margin-bottom: 12px;
+    color: var(--color-text-tertiary);
+    font-size: var(--fontsize-xs);
+  }
+  .order-card-image img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .order-card-name {
+    font-size: var(--fontsize-sm);
+    color: var(--color-text-primary);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .order-card-price {
+    font-size: var(--fontsize-md);
+    font-weight: var(--fontweight-bold);
+    color: var(--color-red-60);
+    margin-bottom: 4px;
+  }
+  .order-card-details {
+    font-size: var(--fontsize-xs);
+    color: var(--color-blue-60);
+    text-decoration: underline;
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: inline-flex; align-items: center; gap: 4px;
+    align-self: flex-start;
+  }
+  .order-card-details::after {
+    content: '';
+    width: 6px; height: 6px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.2s;
+    margin-bottom: 3px;
+  }
+  .order-card-details.open::after {
+    transform: rotate(-135deg);
+    margin-bottom: -2px;
+  }
+  .order-card-details-panel {
+    display: none;
+    margin: 0 0 10px;
+    padding: 10px 12px;
+    background: var(--color-bg-subtle);
+    border-radius: var(--radius-8);
+    font-size: var(--fontsize-xs);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+  .order-card-details-panel.open { display: block; }
+  .order-card-details-panel ul { list-style: none; padding: 0; margin: 0; }
+  .order-card-details-panel li {
+    padding: 5px 0;
+    display: flex; justify-content: space-between; gap: 8px;
+    border-bottom: 1px dashed var(--color-grey-30);
+  }
+  .order-card-details-panel li:last-child { border-bottom: none; }
+  .order-card-details-panel li .item { flex: 1; }
+  .order-card-details-panel li .qty {
+    flex-shrink: 0;
+    color: var(--color-text-tertiary);
+    font-weight: var(--fontweight-medium);
+  }
+  .order-card-details-panel .placeholder {
+    text-align: center;
+    color: var(--color-text-tertiary);
+    font-style: italic;
+    padding: 8px 0;
+  }
+  .order-card-option {
+    margin-bottom: 10px;
+  }
+  .order-card-option-label {
+    font-size: var(--fontsize-xs);
+    color: var(--color-text-secondary);
+    margin-bottom: 4px;
+  }
+  .order-card-option select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-8);
+    background: #fff;
+    font-family: inherit;
+    font-size: var(--fontsize-sm);
+    color: var(--color-text-primary);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 16 16' fill='none' stroke='%238E8E96' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+  }
+  .order-card-cta {
+    align-self: flex-start;
+    padding: 8px 18px;
+    border-radius: var(--radius-full);
+    background: var(--color-purple-60);
+    color: #fff;
+    font-size: var(--fontsize-sm);
+    font-weight: var(--fontweight-semibold);
+  }
+  .order-card-cta.added {
+    background: #fff;
+    color: var(--color-purple-60);
+    border: 1px solid var(--color-purple-40);
+  }
+  /* sticky bottom CTA inside overlay */
+  .order-sticky {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: #fff;
+    border-top: 1px solid var(--color-border-default);
+    padding: 12px 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .order-sticky-summary {
+    flex: 1;
+    display: flex; flex-direction: column;
+  }
+  .order-sticky-summary .label {
+    font-size: var(--fontsize-xxs);
+    color: var(--color-text-tertiary);
+  }
+  .order-sticky-summary .total {
+    font-size: var(--fontsize-ad);
+    font-weight: var(--fontweight-bold);
+    color: var(--color-text-primary);
+  }
+  .order-sticky-cta {
+    background: var(--color-purple-60);
+    color: #fff;
+    font-weight: var(--fontweight-semibold);
+    font-size: var(--fontsize-md);
+    padding: 12px 24px;
+    border-radius: var(--radius-12);
+  }
+
+  /* ── ORDER SUMMARY OVERLAY ── */
+  .summary-overlay {
+    position: fixed;
+    top: 0; left: 50%;
+    transform: translate(-50%, 100%);
+    width: 100%; max-width: 520px;
+    height: 100vh;
+    background: var(--color-bg-subtle);
+    z-index: 310;
+    transition: transform 0.3s ease;
+    display: flex; flex-direction: column;
+  }
+  .summary-overlay.show { transform: translate(-50%, 0); }
+  .summary-body {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 24px;
+  }
+  .summary-pump {
+    background: #fff;
+    padding: 16px 20px;
+    display: flex; align-items: center; gap: 12px;
+    border-bottom: 1px solid var(--color-border-default);
+  }
+  .summary-pump-thumb {
+    width: 56px; height: 56px;
+    border-radius: var(--radius-8);
+    background: var(--color-bg-brand-subtlest);
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .summary-pump-thumb img { width: 100%; height: 100%; object-fit: contain; }
+  .summary-pump-info { flex: 1; min-width: 0; }
+  .summary-pump-label {
+    font-size: var(--fontsize-xxs);
+    color: var(--color-purple-60);
+    font-weight: var(--fontweight-semibold);
+    margin-bottom: 2px;
+  }
+  .summary-pump-name {
+    font-size: var(--fontsize-md);
+    font-weight: var(--fontweight-bold);
+  }
+  .summary-pump-price {
+    font-size: var(--fontsize-sm);
+    color: var(--color-green-60);
+    font-weight: var(--fontweight-bold);
+    flex-shrink: 0;
+  }
+  .summary-section {
+    background: #fff;
+    margin-top: 8px;
+    padding: 16px 20px;
+  }
+  .summary-section-title {
+    font-size: var(--fontsize-sm);
+    font-weight: var(--fontweight-bold);
+    margin-bottom: 12px;
+    color: var(--color-text-primary);
+  }
+  .summary-row {
+    display: flex; justify-content: space-between; gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--color-grey-30);
+    font-size: var(--fontsize-sm);
+  }
+  .summary-row:last-child { border-bottom: none; }
+  .summary-row .name { flex: 1; color: var(--color-text-primary); }
+  .summary-row .qty { color: var(--color-text-tertiary); flex-shrink: 0; margin-right: 8px; }
+  .summary-row .price { color: var(--color-text-primary); font-weight: var(--fontweight-semibold); flex-shrink: 0; }
+  .summary-empty {
+    color: var(--color-text-tertiary);
+    font-size: var(--fontsize-sm);
+    font-style: italic;
+    text-align: center;
+    padding: 8px 0;
+  }
+  .summary-total-row {
+    background: #fff;
+    margin-top: 8px;
+    padding: 18px 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--color-border-default);
+    border-bottom: 1px solid var(--color-border-default);
+  }
+  .summary-total-label {
+    font-size: var(--fontsize-md);
+    font-weight: var(--fontweight-semibold);
+  }
+  .summary-total-value {
+    font-size: var(--fontsize-lg);
+    font-weight: var(--fontweight-bold);
+    color: var(--color-text-primary);
+  }
+  /* sticky footer with CTA + disclaimer */
+  .summary-footer {
+    background: #fff;
+    border-top: 1px solid var(--color-border-default);
+    padding: 14px 20px 20px;
+  }
+  .summary-cta {
+    width: 100%;
+    background: var(--color-purple-60);
+    color: #fff;
+    font-weight: var(--fontweight-bold);
+    font-size: var(--fontsize-ad);
+    padding: 14px;
+    border-radius: var(--radius-12);
+    margin-bottom: 12px;
+  }
+  .summary-disclaimer {
+    font-size: var(--fontsize-xxs);
+    color: var(--color-text-tertiary);
+    line-height: 1.55;
+    background: var(--color-bg-subtle);
+    padding: 12px 14px;
+    border-radius: var(--radius-8);
+  }
+  .summary-disclaimer strong { color: var(--color-text-secondary); font-weight: var(--fontweight-semibold); }
+
+  /* ── BREASTPUMPS WEBVIEW OVERLAY ── */
+  .webview-overlay {
+    position: fixed;
+    top: 0; left: 50%;
+    transform: translate(-50%, 100%);
+    width: 100%; max-width: 520px;
+    height: 100vh;
+    background: #fff;
+    z-index: 320;
+    transition: transform 0.3s ease;
+    display: flex; flex-direction: column;
+  }
+  .webview-overlay.show { transform: translate(-50%, 0); }
+  .webview-chrome {
+    background: var(--color-grey-10);
+    padding: 8px 12px 10px;
+    border-bottom: 1px solid var(--color-border-default);
+    flex-shrink: 0;
+  }
+  .webview-toolbar {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 8px;
+  }
+  .webview-back {
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--color-text-primary);
+  }
+  .webview-title {
+    font-size: var(--fontsize-xs);
+    font-weight: var(--fontweight-semibold);
+    color: var(--color-text-primary);
+    flex: 1;
+    text-align: center;
+  }
+  .webview-url {
+    background: #fff;
+    border-radius: var(--radius-full);
+    padding: 6px 14px;
+    font-size: var(--fontsize-xxs);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border-default);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .webview-url .lock {
+    color: var(--color-green-60);
+  }
+  .webview-body {
+    flex: 1;
+    overflow-y: auto;
+    background: #fff;
+  }
+  .webview-screenshot {
+    width: 100%;
+    display: block;
+  }
+  /* fallback mock when screenshot is not provided */
+  .webview-fallback { padding: 24px 20px; }
+  .webview-fallback h2 {
+    font-size: var(--fontsize-al);
+    font-weight: var(--fontweight-bold);
+    margin-bottom: 16px;
+    color: var(--color-text-primary);
+  }
+  .webview-fallback .step-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--color-grey-20);
+    padding: 6px 12px; border-radius: var(--radius-full);
+    margin-bottom: 16px;
+    font-size: var(--fontsize-xs);
+  }
+  .webview-fallback .step-pill .num {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--color-grey-40); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-weight: var(--fontweight-bold);
+  }
+  .webview-fallback .field-group { margin-bottom: 18px; }
+  .webview-fallback .field-label {
+    font-size: var(--fontsize-sm); margin-bottom: 6px;
+    color: var(--color-text-secondary);
+  }
+  .webview-fallback .field-label .req { color: var(--color-red-60); font-weight: var(--fontweight-semibold); margin-left: 4px; }
+  .webview-fallback .field-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color-grey-30);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: var(--fontsize-sm);
+    color: var(--color-text-primary);
+  }
+  .webview-fallback .field-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  }
+  .webview-fallback .sub-label {
+    font-size: var(--fontsize-xxs); color: var(--color-text-tertiary); margin-top: 4px;
+  }
+  .webview-fallback .placeholder-note {
+    background: var(--color-purple-10);
+    border: 1px dashed var(--color-purple-40);
+    color: var(--color-purple-70);
+    padding: 12px;
+    border-radius: var(--radius-8);
+    font-size: var(--fontsize-xs);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  /* ── DROPDOWN sheet ── */
+  .sheet-backdrop {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 200;
+    display: none;
+  }
+  .sheet-backdrop.show { display: block; }
+  .sheet {
+    position: fixed;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 100%; max-width: 520px;
+    background: #fff;
+    border-radius: 20px 20px 0 0;
+    padding: 12px 20px 24px;
+    z-index: 201;
+    transform: translate(-50%, 100%);
+    transition: transform 0.25s ease;
+  }
+  .sheet.show { transform: translate(-50%, 0); }
+  .sheet-handle {
+    width: 36px; height: 4px;
+    background: var(--color-grey-30);
+    border-radius: 2px;
+    margin: 0 auto 16px;
+  }
+  .sheet-title {
+    font-size: var(--fontsize-al);
+    font-weight: var(--fontweight-bold);
+    margin-bottom: 12px;
+  }
+  .sheet-option {
+    padding: 14px 4px;
+    font-size: var(--fontsize-md);
+    border-bottom: 1px solid var(--color-border-default);
+    cursor: pointer;
+  }
+  .sheet-option:last-child { border-bottom: none; }
+  .sheet-option.selected {
+    color: var(--color-purple-60);
+    font-weight: var(--fontweight-semibold);
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="web-header">
+  <div class="logo">
+    <span class="logo-mark"></span>
+    <span>bomee</span>
+  </div>
+</header>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-copy">
+    <h1 class="hero-title">Your <span class="price">$0</span><br>breast pump</h1>
+    <p class="hero-sub">and all the benefits you deserve</p>
+    <div class="persona-dropdown" onclick="openSheet('trimester')">
+      <div class="row">
+        <span id="trimesterText">3rd Trimester</span>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+      </div>
+      <div class="sub" id="personaSubText">California · Aetna</div>
+    </div>
+  </div>
+  <div class="hero-image">
+    <!-- 사용자: ./assets/hero.png 파일을 같은 폴더에 넣어주세요 -->
+    <img src="./assets/hero.png" alt="Mom and baby" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="hero-image-placeholder" style="display:none;">hero.png</div>
+  </div>
+</section>
+
+<!-- ── DUAL STAT CARDS ── -->
+<div class="stat-cards">
+  <button class="stat-card" onclick="scrollToId('checklist-section')">
+    <div class="stat-card-head">
+      <div class="stat-card-icon checklist">✓</div>
+      <span class="stat-card-goto">Go to ↓</span>
+    </div>
+    <div class="stat-card-label"><span id="statTrimesterLabel">3rd Trimester</span> Checklist</div>
+    <div class="stat-card-value"><span class="accent">1</span>/8</div>
+  </button>
+  <button class="stat-card" onclick="scrollToId('aca-free-section')">
+    <div class="stat-card-head">
+      <div class="stat-card-icon benefit">★</div>
+      <span class="stat-card-goto">Go to ↓</span>
+    </div>
+    <div class="stat-card-label">Maximum Benefits</div>
+    <div class="stat-card-value"><span class="accent-orange">$3,000+</span></div>
+  </button>
+</div>
+
+<!-- ── ACA COVERAGE - BREAST PUMPS ── -->
+<div id="aca-free-section">
+  <div class="bp-header">
+    <h2 class="section-title">ACA coverage - Breast Pumps</h2>
+    <p class="bp-desc">
+      유축기의 가장 이상적인 신청 기간은 28주~36주 사이로 지금이 적기예요. 유축기 신청 절차는 …<a href="#" class="more-link">More</a>
+    </p>
+  </div>
+  <div class="bp-carousel-wrap">
+    <div class="bp-carousel" id="bpCarousel">
+
+      <!-- Card 1 -->
+      <div class="bp-card">
+        <div class="bp-card-label">Insurance covered</div>
+        <div class="bp-card-image">
+          <img src="./assets/pump1.png" alt="Lansinoh 3.0 Lifestyle Set" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+        </div>
+        <div class="bp-card-title">Lansinoh 3.0 Lifestyle Set</div>
+        <button class="bp-card-cta" onclick="openOrderOverlay(this)">Breastpumps.com — $0.00</button>
+        <div class="bp-card-alts">
+          <a href="#">Yummy Mummy — $0.00</a>
+          <a href="#">Babylist — $15.00</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bp-card">
+        <div class="bp-card-label">Insurance covered</div>
+        <div class="bp-card-image">
+          <img src="./assets/pump2.png" alt="Spectra S1 Plus" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+        </div>
+        <div class="bp-card-title">Spectra S1 Plus</div>
+        <button class="bp-card-cta" onclick="openOrderOverlay(this)">Aeroflow — $0.00</button>
+        <div class="bp-card-alts">
+          <a href="#">Babylist — $0.00</a>
+          <a href="#">Yummy Mummy — $25.00</a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bp-card">
+        <div class="bp-card-label">Insurance covered</div>
+        <div class="bp-card-image">
+          <img src="./assets/pump3.png" alt="Medela Pump In Style" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+        </div>
+        <div class="bp-card-title">Medela Pump In Style</div>
+        <button class="bp-card-cta" onclick="openOrderOverlay(this)">Breastpumps.com — $0.00</button>
+        <div class="bp-card-alts">
+          <a href="#">Aeroflow — $0.00</a>
+          <a href="#">Babylist — $35.00</a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bp-card">
+        <div class="bp-card-label">Insurance covered</div>
+        <div class="bp-card-image">
+          <img src="./assets/pump4.png" alt="Elvie Stride" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+        </div>
+        <div class="bp-card-title">Elvie Stride</div>
+        <button class="bp-card-cta" onclick="openOrderOverlay(this)">Aeroflow — $0.00</button>
+        <div class="bp-card-alts">
+          <a href="#">Yummy Mummy — $50.00</a>
+          <a href="#">Babylist — $75.00</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="bp-dots" id="bpDots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+
+  <div class="bp-product-list">
+    <div class="bp-product-row">
+      <div class="bp-product-thumb">
+        <img src="./assets/ameda-glo.png" alt="Ameda Glo" onerror="this.style.display='none';">
+      </div>
+      <div class="bp-product-info">
+        <div class="bp-product-name">Ameda Glo</div>
+        <div class="bp-product-supplier">breastpumps.com</div>
+      </div>
+      <span class="bp-product-price">$0</span>
+    </div>
+    <div class="bp-product-row">
+      <div class="bp-product-thumb">
+        <img src="./assets/willow-go.png" alt="Willow Go" onerror="this.style.display='none';">
+      </div>
+      <div class="bp-product-info">
+        <div class="bp-product-name">Willow Go</div>
+        <div class="bp-product-supplier">aeroflow.com</div>
+      </div>
+      <span class="bp-product-price">$0</span>
+    </div>
+    <div class="bp-product-row">
+      <div class="bp-product-thumb">
+        <img src="./assets/motif-luna.png" alt="Motif Luna" onerror="this.style.display='none';">
+      </div>
+      <div class="bp-product-info">
+        <div class="bp-product-name">Motif Luna</div>
+        <div class="bp-product-supplier">babylist.com</div>
+      </div>
+      <span class="bp-product-price">$0</span>
+    </div>
+  </div>
+
+  <button class="see-all-btn" onclick="openPumpListOverlay()">전체 52개의 상품 확인하기</button>
+</div>
+
+<!-- ── ACA COVERAGE - FREE (LIST) ── -->
+<section class="section">
+  <h2 class="section-title">ACA coverage - free</h2>
+  <div class="benefit-list">
+    <div class="benefit-row">
+      <div class="benefit-row-content">
+        <div class="benefit-row-title">Breastfeeding consultation</div>
+        <div class="benefit-row-desc">Both pre- and post-delivery education covered free</div>
+      </div>
+      <span class="benefit-row-action">View</span>
+    </div>
+    <div class="benefit-row">
+      <div class="benefit-row-content">
+        <div class="benefit-row-title">Additional prenatal tests</div>
+        <div class="benefit-row-desc">No out-of-pocket cost at each visit</div>
+      </div>
+      <span class="benefit-row-action">View</span>
+    </div>
+    <div class="benefit-row">
+      <div class="benefit-row-content">
+        <div class="benefit-row-title">Group B Streptococcus test (GBS)</div>
+        <div class="benefit-row-desc">Free testing available between 35–37 weeks</div>
+      </div>
+      <span class="benefit-row-action">View</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── ACA COVERAGE - PAID/CONDITIONAL ── -->
+<section class="section">
+  <h2 class="section-title">ACA Coverage - Paid/Conditional</h2>
+  <div class="benefit-list">
+    <div class="benefit-row">
+      <div class="benefit-row-content">
+        <div class="benefit-row-title">분만 입원, 경막외 마취, 제왕절개 등</div>
+        <div class="benefit-row-desc">연간 공제액에 급여 부담금 적용이 가능</div>
+      </div>
+      <span class="benefit-row-action">View</span>
+    </div>
+    <div class="benefit-row">
+      <div class="benefit-row-content">
+        <div class="benefit-row-title">합병/계열별</div>
+        <div class="benefit-row-desc">고위험 진단 지속 시 조건부</div>
+      </div>
+      <span class="benefit-row-action">View</span>
+    </div>
+    <div class="benefit-row">
+      <div class="benefit-row-content">
+        <div class="benefit-row-title">분만 전후 정신 건강 상담</div>
+        <div class="benefit-row-desc">고위험 진단 지속 시 조건부로 커버가 가능</div>
+      </div>
+      <span class="benefit-row-action">View</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── IF YOU DON'T HAVE INSURANCE ── -->
+<section class="section">
+  <h2 class="section-title">If you don't have insurance</h2>
+  <div class="benefit-list">
+    <div class="benefit-row">
+      <div class="benefit-row-content">
+        <div class="benefit-row-title">SEP(특별 가입 기간)에 보험 가입</div>
+        <div class="benefit-row-desc">QLE 인정하는 9개 주 + DV 가능 시 지금 마지막 ACA 플랜 가입 가능</div>
+      </div>
+      <span class="benefit-row-action">View</span>
+    </div>
+    <div class="benefit-row">
+      <div class="benefit-row-content">
+        <div class="benefit-row-title">Medicaid</div>
+        <div class="benefit-row-desc">함께 수 40+ (DC 포함), FPL 138% 이하 소득은 면접 가입 가능</div>
+      </div>
+      <span class="benefit-row-action">View</span>
+    </div>
+    <div class="benefit-row">
+      <div class="benefit-row-content">
+        <div class="benefit-row-title">Fallback 프로그램</div>
+        <div class="benefit-row-desc">WIC 영양 보충 프로그램, FQHC 슬라이딩 스케일을 잠정으로 도움 받기</div>
+      </div>
+      <span class="benefit-row-action">View</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── PAY DIRECTLY ON AMAZON WITH FSA/HSA ── -->
+<section class="section" style="padding-bottom: 0;">
+  <h2 class="section-title">Pay directly on Amazon with FSA/HSA</h2>
+</section>
+<div class="product-carousel">
+  <a class="product-card" href="#" target="_blank" rel="noopener">
+    <div class="product-img"></div>
+    <div class="product-brand">Mediheal</div>
+    <div class="product-name">Retinol Collagen Under Eye Patches…</div>
+    <div class="product-price-row">
+      <span class="product-price">$23.82</span>
+      <span class="product-price-original">$33.22</span>
+    </div>
+    <div class="product-rating"><span class="star">★</span> 4.8 (2,600)</div>
+  </a>
+  <a class="product-card" href="#" target="_blank" rel="noopener">
+    <div class="product-img"></div>
+    <div class="product-brand">Mediheal</div>
+    <div class="product-name">Retinol Collagen Under Eye Patches…</div>
+    <div class="product-price-row">
+      <span class="product-price">$23.82</span>
+      <span class="product-price-original">$33.22</span>
+    </div>
+    <div class="product-rating"><span class="star">★</span> 4.8 (2,600)</div>
+  </a>
+  <a class="product-card" href="#" target="_blank" rel="noopener">
+    <div class="product-img"></div>
+    <div class="product-brand">Mediheal</div>
+    <div class="product-name">Retinol Collagen Under Eye Patches…</div>
+    <div class="product-price-row">
+      <span class="product-price">$23.82</span>
+      <span class="product-price-original">$33.22</span>
+    </div>
+    <div class="product-rating"><span class="star">★</span> 4.8 (2,600)</div>
+  </a>
+</div>
+
+<!-- ── PERSONALIZATION FORM ── -->
+<section class="section" style="padding-bottom: 0;">
+  <h2 class="section-title">We'll find personalized benefits for you</h2>
+</section>
+<div class="person-form">
+  <div class="form-field" onclick="openSheet('state')">
+    <span>Select your state</span>
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+  </div>
+  <div class="form-field">
+    <input type="date" placeholder="Select due date" onfocus="try{this.showPicker()}catch(e){}">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+  </div>
+  <div class="form-checkbox" id="hasInsuranceCheckbox" onclick="toggleInsurance()">
+    <span class="box">✓</span>
+    <span>I have insurance</span>
+  </div>
+  <div class="form-field" onclick="openSheet('insurer')">
+    <span>Select insurance provider</span>
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+  </div>
+  <button class="form-cta">Get My Benefits</button>
+</div>
+
+<!-- ── CHECKLIST ── -->
+<section class="checklist-section" id="checklist-section">
+  <div class="checklist-head">
+    <h2 class="section-title" style="margin: 0;"><span id="checklistTrimesterLabel">3rd Trimester</span> Checklist</h2>
+    <span class="more">More ›</span>
+  </div>
+  <div class="checklist">
+    <div class="checklist-item checked" onclick="this.classList.toggle('checked'); this.classList.toggle('unchecked');">
+      <span class="check-circle">✓</span>
+      <div class="checklist-content">
+        <div class="checklist-title">Pregnancy Confirmation Checkup</div>
+        <div class="checklist-desc">Schedule your first prenatal visit (first OB visit) between 6–10 weeks of pregnancy</div>
+      </div>
+    </div>
+    <div class="checklist-item unchecked" onclick="this.classList.toggle('checked'); this.classList.toggle('unchecked');">
+      <span class="check-circle">✓</span>
+      <div class="checklist-content">
+        <div class="checklist-title">First Ultrasound Confirmation</div>
+        <div class="checklist-desc">Between 10 and 13 weeks, the first ultrasound can detect the fetal heartbeat</div>
+      </div>
+    </div>
+    <div class="checklist-item checked" onclick="this.classList.toggle('checked'); this.classList.toggle('unchecked');">
+      <span class="check-circle">✓</span>
+      <div class="checklist-content">
+        <div class="checklist-title">Eliminate miscarriage risk factors, get plenty of rest</div>
+        <div class="checklist-desc">This period has a high risk of miscarriage, so avoid risky behaviors and rest well</div>
+      </div>
+    </div>
+    <div class="checklist-item unchecked" onclick="this.classList.toggle('checked'); this.classList.toggle('unchecked');">
+      <span class="check-circle">✓</span>
+      <div class="checklist-content">
+        <div class="checklist-title">Purchase morning sickness supplies</div>
+        <div class="checklist-desc">This period has a high risk of miscarriage, so avoid risky behaviors and rest well</div>
+      </div>
+    </div>
+    <div class="checklist-item unchecked" onclick="this.classList.toggle('checked'); this.classList.toggle('unchecked');">
+      <span class="check-circle">✓</span>
+      <div class="checklist-content">
+        <div class="checklist-title">Purchase nutritional supplements</div>
+        <div class="checklist-desc">In addition to free folic acid, it's good to take prenatal vitamins together</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FSA/HSA CATEGORIES ── -->
+<section class="fsa-section">
+  <h2 class="section-title">Products eligible for FSA/HSA payment</h2>
+  <div class="fsa-list">
+    <div class="fsa-row">
+      <div class="fsa-row-content">
+        <div class="fsa-row-title">임산부 복대</div>
+        <div class="fsa-row-desc">분만 입원, 경막외 마취, 제왕절개 등 연간 공제액에 급여 부담금 적용이 가능</div>
+      </div>
+      <svg class="chev" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l4 4-4 4"/></svg>
+    </div>
+    <div class="fsa-row">
+      <div class="fsa-row-content">
+        <div class="fsa-row-title">임산부 바디 필로우</div>
+        <div class="fsa-row-desc">의사 처방 소견서 필요</div>
+      </div>
+      <svg class="chev" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l4 4-4 4"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-disclaimer">
+    Eligibility for insurance-covered products and services, including breast pumps, counseling, and therapy, is determined by your specific insurance plan and provider. While Bomee provides estimates based on ACA guidelines, <span class="em">actual coverage and out-of-pocket costs may vary.</span> Final approval is subject to your insurance carrier's clinical policies and medical necessity requirements. Bomee is not an insurance provider and does not guarantee 100% coverage for all users. Please consult with your insurance provider for your specific plan details.
+  </div>
+  <div class="footer-brand">
+    <div class="logo">
+      <span class="logo-mark"></span>
+      <span>bomee</span>
+    </div>
+  </div>
+  <div class="footer-meta">
+    © 2026 Humanscape US INC.<br>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Do Not Sell or Share My Personal Information</a>
+    Contact us : <a href="mailto:bomee@lifex.io" style="display:inline;">bomee@lifex.io</a>
+  </div>
+</footer>
+
+<!-- ── PUMP LIST OVERLAY ── -->
+<div class="pump-list-overlay" id="pumpListOverlay">
+  <div class="order-header">
+    <button class="order-back" onclick="closePumpListOverlay()" aria-label="back">
+      <svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+    </button>
+    <div class="order-title">All Breast Pumps</div>
+  </div>
+
+  <div class="pump-list-body">
+    <div class="pump-banner upgrade" style="margin-top:12px;">
+      <span class="pump-banner-icon">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="7"/><path d="M8 5v3M8 11h0"/></svg>
+      </span>
+      <div class="pump-banner-body">
+        <strong>About Upgrade Fees:</strong><br>
+        Upgrade fees shown represent the difference between your insurance plan's contracted reimbursement and the actual product cost. Additional manufacturer features have associated costs and can't be provided at no charge.
+      </div>
+      <span class="pump-banner-close" onclick="this.parentElement.style.display='none'">×</span>
+    </div>
+
+    <div class="pump-meta">
+      <span class="pump-meta-count"><strong id="pumpMetaCount">52</strong> pumps available</span>
+      <div class="pump-actions">
+        <button class="pump-filter-btn">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h12M4 8h8M6 12h4"/></svg>
+          Filters
+        </button>
+        <select class="pump-sort">
+          <option>Sort by Name</option>
+          <option>Sort by Price (low → high)</option>
+          <option>Sort by Price (high → low)</option>
+          <option>Sort by Brand</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="pump-filter-chips">
+      <button class="pump-chip active" onclick="selectPumpChip(this)">All</button>
+      <button class="pump-chip" onclick="selectPumpChip(this)">Wearable</button>
+      <button class="pump-chip" onclick="selectPumpChip(this)">Hands-Free</button>
+      <button class="pump-chip" onclick="selectPumpChip(this)">Hospital Grade</button>
+      <button class="pump-chip" onclick="selectPumpChip(this)">Manual</button>
+      <button class="pump-chip" onclick="selectPumpChip(this)">Closed System</button>
+      <button class="pump-chip" onclick="selectPumpChip(this)">Battery</button>
+    </div>
+
+    <div class="pump-grid" id="pumpGrid">
+      <!-- Card 1 -->
+      <div class="pump-grid-card">
+        <div class="pump-grid-image"><img src="./assets/pump-list-1.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-brand">Ardo</div>
+        <div class="pump-grid-name">Meiia – Wearable Pump, No Tubes or Wires</div>
+        <div class="pump-grid-rating"><span class="star">★</span> 4.7 <span>(189)</span></div>
+        <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Breastpumps.com — $0.00</button>
+        <div class="pump-grid-alts"><a href="#">Babylist — $0.00</a></div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="pump-grid-card">
+        <div class="pump-grid-image"><img src="./assets/pump-list-2.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-brand">Ameda</div>
+        <div class="pump-grid-name">Glo</div>
+        <div class="pump-grid-rating"><span class="star">★</span> 4.4 <span>(312)</span></div>
+        <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Breastpumps.com — $0.00</button>
+        <div class="pump-grid-alts">
+          <a href="#">Yummy Mummy — $0.00</a>
+          <a href="#">Babylist — $15.00</a>
+        </div>
+      </div>
+
+      <!-- Card 3 (no alt suppliers) -->
+      <div class="pump-grid-card">
+        <div class="pump-grid-image"><img src="./assets/pump-list-3.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-brand">Ameda</div>
+        <div class="pump-grid-name">Mya Joy Basic Double Electric</div>
+        <div class="pump-grid-rating"><span class="star">★</span> 4.3 <span>(78)</span></div>
+        <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Aeroflow — $0.00</button>
+      </div>
+
+      <!-- Card 4 (upgrade fee) -->
+      <div class="pump-grid-card">
+        <div class="pump-grid-image"><img src="./assets/pump-list-4.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-brand">Ameda</div>
+        <div class="pump-grid-name">Mya Joy with Tote, Cooler &amp; Manual</div>
+        <div class="pump-grid-rating"><span class="star">★</span> 4.6 <span>(215)</span></div>
+        <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Breastpumps.com — $50.00</button>
+        <div class="pump-grid-alts"><a href="#">Yummy Mummy — $55.00</a></div>
+      </div>
+
+      <!-- Card 5 (no alts) -->
+      <div class="pump-grid-card">
+        <div class="pump-grid-image"><img src="./assets/pump-list-5.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-brand">Ameda</div>
+        <div class="pump-grid-name">Mya Joy PLUS Double Electric</div>
+        <div class="pump-grid-rating"><span class="star">★</span> 4.5 <span>(142)</span></div>
+        <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Breastpumps.com — $0.00</button>
+      </div>
+
+      <!-- Card 6 (upgrade fee + alt) -->
+      <div class="pump-grid-card">
+        <div class="pump-grid-image"><img src="./assets/pump-list-6.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-brand">Ameda</div>
+        <div class="pump-grid-name">Mya Joy PLUS with Tote Bag</div>
+        <div class="pump-grid-rating"><span class="star">★</span> 4.5 <span>(96)</span></div>
+        <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Aeroflow — $25.00</button>
+        <div class="pump-grid-alts"><a href="#">Babylist — $35.00</a></div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="pump-grid-card">
+        <div class="pump-grid-image"><img src="./assets/pump-list-7.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-brand">Ameda</div>
+        <div class="pump-grid-name">Mya Joy with Large Tote</div>
+        <div class="pump-grid-rating"><span class="star">★</span> 4.4 <span>(58)</span></div>
+        <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Breastpumps.com — $0.00</button>
+        <div class="pump-grid-alts"><a href="#">Yummy Mummy — $10.00</a></div>
+      </div>
+
+      <!-- Card 8 (3 suppliers) -->
+      <div class="pump-grid-card">
+        <div class="pump-grid-image"><img src="./assets/pump-list-8.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-brand">Ardo</div>
+        <div class="pump-grid-name">Aiyssa Double</div>
+        <div class="pump-grid-rating"><span class="star">★</span> 4.6 <span>(167)</span></div>
+        <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Breastpumps.com — $0.00</button>
+        <div class="pump-grid-alts">
+          <a href="#">Babylist — $0.00</a>
+          <a href="#">Yummy Mummy — $0.00</a>
+        </div>
+      </div>
+
+      <!-- Card 9 (upgrade, no alts) -->
+      <div class="pump-grid-card">
+        <div class="pump-grid-image"><img src="./assets/pump-list-9.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-brand">Ardo</div>
+        <div class="pump-grid-name">Aiyssa Double with Manual Pump</div>
+        <div class="pump-grid-rating"><span class="star">★</span> 4.5 <span>(74)</span></div>
+        <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Breastpumps.com — $30.00</button>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="pump-grid-card">
+        <div class="pump-grid-image"><img src="./assets/pump-list-10.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-brand">Lansinoh</div>
+        <div class="pump-grid-name">3.0 Lifestyle Set</div>
+        <div class="pump-grid-rating"><span class="star">★</span> 4.8 <span>(421)</span></div>
+        <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Breastpumps.com — $0.00</button>
+        <div class="pump-grid-alts">
+          <a href="#">Yummy Mummy — $0.00</a>
+          <a href="#">Babylist — $15.00</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── ORDER OVERLAY (Bundle / Accessories) ── -->
+<div class="order-overlay" id="orderOverlay">
+  <div class="order-header">
+    <button class="order-back" onclick="closeOrderOverlay()" aria-label="back">
+      <svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+    </button>
+    <div class="order-title">Customize your order</div>
+  </div>
+
+  <div class="order-body">
+    <!-- selected pump -->
+    <div class="order-selected">
+      <div class="order-selected-thumb">
+        <img id="orderSelectedImg" src="" alt="" onerror="this.style.display='none';">
+      </div>
+      <div class="order-selected-info">
+        <div class="order-selected-label">Insurance covered</div>
+        <div class="order-selected-name" id="orderSelectedName">Lansinoh 3.0 Lifestyle Set</div>
+      </div>
+      <div class="order-selected-price">$0.00</div>
+    </div>
+
+    <!-- BUNDLES -->
+    <div class="order-section">
+      <div class="order-section-title">Bundle options</div>
+      <div class="order-carousel">
+        <div class="order-card">
+          <div class="order-card-image">
+            <img src="./assets/ameda-premium.png" alt="Ameda Premium Bundle" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+          </div>
+          <div class="order-card-name">Ameda Premium Bundle</div>
+          <div class="order-card-price">$84.99</div>
+          <span class="order-card-details" onclick="toggleDetails(this)">See Details</span>
+          <div class="order-card-details-panel">
+            <ul>
+              <li><span class="item">Ameda Pump'N Protect 6oz Breast Milk Storage Bags (50 ct)</span><span class="qty">Qty: 2</span></li>
+              <li><span class="item">Ameda MoistureGuard Disposable Nursing Pad – 50 pads</span><span class="qty">Qty: 2</span></li>
+              <li><span class="item">Ameda CleanEase Microwavable Steam Bags</span><span class="qty">Qty: 2</span></li>
+              <li><span class="item">Ameda Cool'N Carry Milk Storage Cooler</span><span class="qty">Qty: 1</span></li>
+            </ul>
+          </div>
+          <button class="order-card-cta" onclick="toggleAdded(this)">Add to Order</button>
+        </div>
+
+        <div class="order-card">
+          <div class="order-card-image">
+            <img src="./assets/ameda-ultimate.png" alt="Ameda Ultimate Bundle" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+          </div>
+          <div class="order-card-name">Ameda Ultimate Bundle</div>
+          <div class="order-card-price">$144.99</div>
+          <span class="order-card-details" onclick="toggleDetails(this)">See Details</span>
+          <div class="order-card-details-panel">
+            <div class="placeholder">실제 번들 구성품 데이터 입력 필요</div>
+          </div>
+          <button class="order-card-cta" onclick="toggleAdded(this)">Add to Order</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCESSORIES -->
+    <div class="order-section">
+      <div class="order-section-title">Accessories</div>
+      <div class="order-carousel">
+        <div class="order-card">
+          <div class="order-card-image">
+            <img src="./assets/willow-wave.png" alt="Willow Wave Wearable Manual Breast Pump" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+          </div>
+          <div class="order-card-name">Willow Wave Wearable Manual Breast Pump</div>
+          <div class="order-card-price">$34.99</div>
+          <div class="order-card-details">See Details</div>
+          <button class="order-card-cta" onclick="toggleAdded(this)">Add to Order</button>
+        </div>
+
+        <div class="order-card">
+          <div class="order-card-image">
+            <img src="./assets/leggings.png" alt="Pregnancy Support Leggings" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+          </div>
+          <div class="order-card-name">Pregnancy Support Leggings</div>
+          <div class="order-card-price">$45.99</div>
+          <div class="order-card-details">See Details</div>
+          <div class="order-card-option">
+            <div class="order-card-option-label">Choose your size</div>
+            <select>
+              <option>Small</option><option>Medium</option><option>Large</option><option>X-Large</option>
+            </select>
+          </div>
+          <button class="order-card-cta" onclick="toggleAdded(this)">Add to Order</button>
+        </div>
+
+        <div class="order-card">
+          <div class="order-card-image">
+            <img src="./assets/recovery-garment.png" alt="Postpartum Recovery Garment" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+          </div>
+          <div class="order-card-name">Postpartum Recovery Garment, C-Section &amp; Natural Birth, Nude</div>
+          <div class="order-card-price">$49.99</div>
+          <div class="order-card-details">See Details</div>
+          <div class="order-card-option">
+            <div class="order-card-option-label">Choose your size</div>
+            <select>
+              <option>XS</option><option>Small</option><option>Medium</option><option>Large</option><option>X-Large</option>
+            </select>
+          </div>
+          <button class="order-card-cta" onclick="toggleAdded(this)">Add to Order</button>
+        </div>
+
+        <div class="order-card">
+          <div class="order-card-image">
+            <img src="./assets/belly-band.png" alt="Pregnancy Belly Support Band Black" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+          </div>
+          <div class="order-card-name">Pregnancy Belly Support Band Black</div>
+          <div class="order-card-price">$39.99</div>
+          <div class="order-card-details">See Details</div>
+          <div class="order-card-option">
+            <div class="order-card-option-label">Choose your size</div>
+            <select>
+              <option>Extra Small</option><option>Small</option><option>Medium</option><option>Large</option>
+            </select>
+          </div>
+          <button class="order-card-cta" onclick="toggleAdded(this)">Add to Order</button>
+        </div>
+
+        <div class="order-card">
+          <div class="order-card-image">
+            <img src="./assets/compression-socks.png" alt="Compression Socks" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+          </div>
+          <div class="order-card-name">Compression Socks Crew One Size</div>
+          <div class="order-card-price">$34.99</div>
+          <div class="order-card-details">See Details</div>
+          <div class="order-card-option">
+            <div class="order-card-option-label">Choose your color</div>
+            <select>
+              <option>Magenta</option><option>Black</option><option>Navy</option><option>Grey</option>
+            </select>
+          </div>
+          <button class="order-card-cta" onclick="toggleAdded(this)">Add to Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- sticky bottom CTA -->
+  <div class="order-sticky">
+    <div class="order-sticky-summary">
+      <span class="label">Pump (insurance) + <span id="orderAddCount">0</span> add-ons</span>
+      <span class="total">$<span id="orderTotal">0.00</span></span>
+    </div>
+    <button class="order-sticky-cta" onclick="openOrderSummary()">Continue</button>
+  </div>
+</div>
+
+<!-- ── ORDER SUMMARY OVERLAY ── -->
+<div class="summary-overlay" id="summaryOverlay">
+  <div class="order-header">
+    <button class="order-back" onclick="closeOrderSummary()" aria-label="back">
+      <svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+    </button>
+    <div class="order-title">Review your order</div>
+  </div>
+
+  <div class="summary-body">
+    <div class="summary-pump">
+      <div class="summary-pump-thumb">
+        <img id="summaryPumpImg" src="" alt="" onerror="this.style.display='none';">
+      </div>
+      <div class="summary-pump-info">
+        <div class="summary-pump-label">Insurance covered</div>
+        <div class="summary-pump-name" id="summaryPumpName">Lansinoh 3.0 Lifestyle Set</div>
+      </div>
+      <div class="summary-pump-price">$0.00</div>
+    </div>
+
+    <div class="summary-section">
+      <div class="summary-section-title">Add-on items</div>
+      <div id="summaryItemList">
+        <div class="summary-empty">추가한 옵션이 없습니다.</div>
+      </div>
+    </div>
+
+    <div class="summary-total-row">
+      <span class="summary-total-label">Total <span id="summaryAddCount" style="color:var(--color-text-tertiary); font-weight:var(--fontweight-regular); font-size:var(--fontsize-xs);">(펌프 + 0개 add-on)</span></span>
+      <span class="summary-total-value">$<span id="summaryTotalNum">0.00</span></span>
+    </div>
+  </div>
+
+  <div class="summary-footer">
+    <button class="summary-cta" onclick="confirmOrderToWebview()">주문 확인 완료</button>
+    <div class="summary-disclaimer">
+      이 주문은 제휴사 <strong>breastpumps.com</strong>으로 전달됩니다. 보험 신청, 처방전 발급, 청구, 결제 및 배송 등 모든 거래 절차는 breastpumps.com이 직접 처리하며, Bomee는 해당 절차에 관여하지 않습니다. Bomee는 정보 제공 서비스이며, 의료기기 판매자, 보험 청구 대행자, 의료 제공자가 아닙니다. 최종 보험 적용 여부와 본인 부담금은 귀하의 보험 약관에 따라 달라질 수 있습니다.
+    </div>
+  </div>
+</div>
+
+<!-- ── BREASTPUMPS.COM WEBVIEW SIMULATION ── -->
+<div class="webview-overlay" id="webviewOverlay">
+  <div class="webview-chrome">
+    <div class="webview-toolbar">
+      <button class="webview-back" onclick="closeWebview()" aria-label="back">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+      </button>
+      <div class="webview-title">WebView Page</div>
+      <span style="width:28px;"></span>
+    </div>
+    <div class="webview-url">
+      <span class="lock">🔒</span>
+      <span>breastpumps.com / order / insurance-form</span>
+    </div>
+  </div>
+  <div class="webview-body">
+    <!-- 사용자: ./assets/breastpumps-webview.png 파일을 같은 폴더에 넣으면 자동 표시됨. 없으면 아래 mock 폼이 보임 -->
+    <img class="webview-screenshot" src="./assets/breastpumps-webview.png" alt="breastpumps.com Insurance Form" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+    <div class="webview-fallback" style="display:none;">
+      <div class="placeholder-note">
+        실제 화면은 외부 사이트(breastpumps.com)에서 열립니다. 와이어프레임에서는 양식 예시로 대체합니다.<br>
+        <small>실제 스크린샷을 <code>./assets/breastpumps-webview.png</code>에 넣으면 그대로 표시됩니다.</small>
+      </div>
+      <div class="step-pill"><span class="num">4</span><strong>Mom's Information</strong></div>
+
+      <div class="field-group">
+        <div class="field-label">Mom's Name <span class="req">(Required)</span></div>
+        <div class="field-row">
+          <div>
+            <input type="text" class="field-input" placeholder="">
+            <div class="sub-label">First</div>
+          </div>
+          <div>
+            <input type="text" class="field-input" placeholder="">
+            <div class="sub-label">Last</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-label">Mother's Date Of Birth <span class="req">(Required)</span></div>
+        <input type="text" class="field-input" placeholder="mm/dd/yyyy">
+      </div>
+
+      <div class="field-group">
+        <div class="field-label">Baby's Due Date <span class="req">(Required)</span></div>
+        <input type="text" class="field-input" placeholder="mm/dd/yyyy">
+      </div>
+
+      <div class="field-group">
+        <div class="field-label">Shipping Address <span class="req">(Required)</span></div>
+        <textarea class="field-input" rows="3" placeholder=""></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── STICKY BOTTOM CTA ── -->
+<div class="sticky-cta">
+  <button class="picker" onclick="openSheet('state')">
+    <span id="stickyStateText">your state</span>
+    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+  </button>
+  <button class="submit">Get my benefits</button>
+</div>
+
+<!-- ── SHEETS ── -->
+<div class="sheet-backdrop" id="sheetBackdrop" onclick="closeSheet()"></div>
+<div class="sheet" id="sheet">
+  <div class="sheet-handle"></div>
+  <div class="sheet-title" id="sheetTitle">Select</div>
+  <div id="sheetContent"></div>
+</div>
+
+<script>
+  /* ── Sheets / dropdowns ── */
+  const TRIMESTER_OPTIONS = ['1st Trimester', '2nd Trimester', '3rd Trimester', 'Postpartum'];
+  const STATE_OPTIONS = ['California', 'New York', 'Texas', 'Florida', 'Washington', 'Illinois'];
+  const INSURER_OPTIONS = ['Aetna', 'Blue Cross Blue Shield', 'Cigna', 'UnitedHealthcare', 'Kaiser Permanente', 'Humana'];
+
+  let currentTrimester = '3rd Trimester';
+  let currentState = 'California';
+  let currentInsurer = 'Aetna';
+
+  function openSheet(type) {
+    const sheet = document.getElementById('sheet');
+    const backdrop = document.getElementById('sheetBackdrop');
+    const title = document.getElementById('sheetTitle');
+    const content = document.getElementById('sheetContent');
+    let opts = [], selected = '', cb = () => {};
+    if (type === 'trimester') {
+      title.textContent = 'Select your trimester';
+      opts = TRIMESTER_OPTIONS; selected = currentTrimester;
+      cb = (v) => { currentTrimester = v; updateTrimester(); };
+    } else if (type === 'state') {
+      title.textContent = 'Select your state';
+      opts = STATE_OPTIONS; selected = currentState;
+      cb = (v) => { currentState = v; updateState(); };
+    } else if (type === 'insurer') {
+      title.textContent = 'Select your insurance';
+      opts = INSURER_OPTIONS; selected = currentInsurer;
+      cb = (v) => { currentInsurer = v; updateInsurer(); };
+    }
+    content.innerHTML = opts.map(o => `<div class="sheet-option ${o === selected ? 'selected' : ''}" data-v="${o}">${o}</div>`).join('');
+    content.querySelectorAll('.sheet-option').forEach(el => {
+      el.onclick = () => { cb(el.dataset.v); closeSheet(); };
+    });
+    backdrop.classList.add('show');
+    setTimeout(() => sheet.classList.add('show'), 10);
+  }
+  function closeSheet() {
+    document.getElementById('sheet').classList.remove('show');
+    setTimeout(() => document.getElementById('sheetBackdrop').classList.remove('show'), 250);
+  }
+  function updateTrimester() {
+    document.getElementById('trimesterText').textContent = currentTrimester;
+    document.getElementById('statTrimesterLabel').textContent = currentTrimester;
+    document.getElementById('checklistTrimesterLabel').textContent = currentTrimester;
+  }
+  function updateState() {
+    document.getElementById('stickyStateText').textContent = currentState;
+    document.getElementById('personaSubText').textContent = `${currentState} · ${currentInsurer}`;
+  }
+  function updateInsurer() {
+    document.getElementById('personaSubText').textContent = `${currentState} · ${currentInsurer}`;
+  }
+
+  /* ── Insurance checkbox ── */
+  function toggleInsurance() {
+    const el = document.getElementById('hasInsuranceCheckbox');
+    el.classList.toggle('unchecked');
+    el.querySelector('.box').textContent = el.classList.contains('unchecked') ? '' : '✓';
+  }
+
+  /* ── Smooth scroll for stat cards ── */
+  function scrollToId(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  /* ── Body scroll lock helper (any overlay open → lock) ── */
+  function _updateBodyScrollLock() {
+    const anyOpen = document.querySelector('.pump-list-overlay.show, .order-overlay.show, .summary-overlay.show, .webview-overlay.show');
+    document.body.style.overflow = anyOpen ? 'hidden' : '';
+  }
+
+  /* ── Pump list overlay (Browse all 52 pumps) ── */
+  function openPumpListOverlay() {
+    document.getElementById('pumpListOverlay').classList.add('show');
+    _updateBodyScrollLock();
+  }
+  function closePumpListOverlay() {
+    document.getElementById('pumpListOverlay').classList.remove('show');
+    _updateBodyScrollLock();
+  }
+  function selectPumpChip(btn) {
+    document.querySelectorAll('.pump-chip').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    // Real impl: filter the grid by attribute
+  }
+  function selectPumpFromList(btn) {
+    // Open the Order/Customize overlay on top with this pump pre-selected.
+    // Pump list overlay stays open underneath so user can pick a different pump after backing out.
+    const card = btn.closest('.pump-grid-card');
+    const brand = card.querySelector('.pump-grid-brand')?.textContent?.trim() || '';
+    const name = card.querySelector('.pump-grid-name')?.textContent?.trim() || 'your pump';
+    const fullName = brand ? brand + ' ' + name : name;
+    const img = card.querySelector('.pump-grid-image img');
+    const imgSrc = (img && img.complete && img.naturalWidth > 0) ? img.src : '';
+    _populateOrderOverlay(fullName, imgSrc);
+    document.getElementById('orderOverlay').classList.add('show');
+    _updateBodyScrollLock();
+  }
+
+  /* ── Order overlay open/close ── */
+  function _populateOrderOverlay(name, imgSrc) {
+    document.getElementById('orderSelectedName').textContent = name;
+    const tgt = document.getElementById('orderSelectedImg');
+    if (imgSrc) { tgt.src = imgSrc; tgt.style.display = ''; tgt.alt = name; }
+    else { tgt.removeAttribute('src'); tgt.style.display = 'none'; }
+    const overlay = document.getElementById('orderOverlay');
+    overlay.querySelectorAll('.order-card-cta.added').forEach(b => {
+      b.classList.remove('added');
+      b.textContent = b.dataset.original || b.textContent;
+    });
+    document.getElementById('orderAddCount').textContent = '0';
+    document.getElementById('orderTotal').textContent = '0.00';
+    // Also reset any open See Details accordions
+    overlay.querySelectorAll('.order-card-details.open').forEach(el => el.classList.remove('open'));
+    overlay.querySelectorAll('.order-card-details-panel.open').forEach(el => el.classList.remove('open'));
+  }
+  function openOrderOverlay(btn) {
+    const card = btn.closest('.bp-card');
+    const name = card.querySelector('.bp-card-title')?.textContent?.trim() || 'your pump';
+    const img = card.querySelector('.bp-card-image img');
+    const imgSrc = (img && img.complete && img.naturalWidth > 0) ? img.src : '';
+    _populateOrderOverlay(name, imgSrc);
+    document.getElementById('orderOverlay').classList.add('show');
+    _updateBodyScrollLock();
+  }
+  function closeOrderOverlay() {
+    document.getElementById('orderOverlay').classList.remove('show');
+    _updateBodyScrollLock();
+  }
+
+  /* ── Order summary (Continue → review) ── */
+  function openOrderSummary() {
+    const orderOverlay = document.getElementById('orderOverlay');
+    // pull the selected pump info from the order overlay
+    const pumpName = document.getElementById('orderSelectedName').textContent;
+    const pumpImg = document.getElementById('orderSelectedImg');
+    const sumImg = document.getElementById('summaryPumpImg');
+    if (pumpImg && pumpImg.src && pumpImg.style.display !== 'none') {
+      sumImg.src = pumpImg.src; sumImg.style.display = '';
+    } else {
+      sumImg.removeAttribute('src'); sumImg.style.display = 'none';
+    }
+    document.getElementById('summaryPumpName').textContent = pumpName;
+
+    // collect added items
+    const addedItems = [];
+    orderOverlay.querySelectorAll('.order-card-cta.added').forEach(btn => {
+      const card = btn.closest('.order-card');
+      const name = card.querySelector('.order-card-name')?.textContent?.trim() || '';
+      const price = card.querySelector('.order-card-price')?.textContent?.trim() || '$0';
+      // capture selected option (size/color) if present
+      const sel = card.querySelector('.order-card-option select');
+      const optLabel = card.querySelector('.order-card-option-label')?.textContent?.trim() || '';
+      const optVal = sel?.value || '';
+      addedItems.push({ name, price, optLabel, optVal });
+    });
+
+    const list = document.getElementById('summaryItemList');
+    if (addedItems.length === 0) {
+      list.innerHTML = '<div class="summary-empty">추가한 옵션이 없습니다.</div>';
+    } else {
+      list.innerHTML = addedItems.map(it => {
+        const optTxt = it.optLabel && it.optVal ? `<div style="font-size:var(--fontsize-xxs); color:var(--color-text-tertiary); margin-top:2px;">${it.optLabel}: ${it.optVal}</div>` : '';
+        return `<div class="summary-row"><div class="name">${it.name}${optTxt}</div><span class="price">${it.price}</span></div>`;
+      }).join('');
+    }
+    const total = document.getElementById('orderTotal').textContent;
+    document.getElementById('summaryTotalNum').textContent = total;
+    document.getElementById('summaryAddCount').textContent = `(펌프 + ${addedItems.length}개 add-on)`;
+
+    document.getElementById('summaryOverlay').classList.add('show');
+    _updateBodyScrollLock();
+  }
+  function closeOrderSummary() {
+    document.getElementById('summaryOverlay').classList.remove('show');
+    _updateBodyScrollLock();
+  }
+
+  /* ── Confirm → external WebView (breastpumps.com) ── */
+  function confirmOrderToWebview() {
+    document.getElementById('webviewOverlay').classList.add('show');
+    _updateBodyScrollLock();
+  }
+  function closeWebview() {
+    document.getElementById('webviewOverlay').classList.remove('show');
+    _updateBodyScrollLock();
+  }
+  function toggleDetails(el) {
+    const card = el.closest('.order-card');
+    const panel = card?.querySelector('.order-card-details-panel');
+    if (!panel) return;
+    el.classList.toggle('open');
+    panel.classList.toggle('open');
+  }
+  function toggleAdded(btn) {
+    if (!btn.dataset.original) btn.dataset.original = btn.textContent;
+    const card = btn.closest('.order-card');
+    const priceText = card.querySelector('.order-card-price')?.textContent || '$0';
+    const price = parseFloat(priceText.replace(/[^0-9.]/g, '')) || 0;
+
+    const totalEl = document.getElementById('orderTotal');
+    const countEl = document.getElementById('orderAddCount');
+    let total = parseFloat(totalEl.textContent) || 0;
+    let count = parseInt(countEl.textContent, 10) || 0;
+
+    if (btn.classList.toggle('added')) {
+      btn.textContent = '✓ Added';
+      total += price; count += 1;
+    } else {
+      btn.textContent = btn.dataset.original;
+      total -= price; count -= 1;
+    }
+    totalEl.textContent = total.toFixed(2);
+    countEl.textContent = String(count);
+  }
+
+  /* ── Click-and-drag horizontal scroll for desktop ── */
+  function enableDragScroll(el) {
+    if (!el || el.dataset.dragInit) return;
+    el.dataset.dragInit = '1';
+    let isDown = false, moved = false, startX = 0, startScroll = 0;
+    el.addEventListener('mousedown', (e) => {
+      // Skip if clicking interactive elements (buttons, links, selects)
+      if (e.target.closest('button, a, select, .order-card-details')) return;
+      isDown = true; moved = false;
+      startX = e.pageX;
+      startScroll = el.scrollLeft;
+      el.classList.add('dragging');
+    });
+    window.addEventListener('mouseup', () => {
+      if (isDown) { isDown = false; el.classList.remove('dragging'); }
+    });
+    el.addEventListener('mouseleave', () => {
+      if (isDown) { isDown = false; el.classList.remove('dragging'); }
+    });
+    el.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      const dx = e.pageX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      el.scrollLeft = startScroll - dx;
+      e.preventDefault();
+    });
+    // Suppress click immediately after drag (so the card doesn't trigger a click)
+    el.addEventListener('click', (e) => {
+      if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+    }, true);
+  }
+  document.querySelectorAll('.bp-carousel, .product-carousel, .order-carousel').forEach(enableDragScroll);
+
+  /* ── Carousel dot indicator ── */
+  const bpCarousel = document.getElementById('bpCarousel');
+  const bpDots = document.querySelectorAll('#bpDots .dot');
+  if (bpCarousel && bpDots.length) {
+    bpCarousel.addEventListener('scroll', () => {
+      const cardW = bpCarousel.firstElementChild.offsetWidth + 12;
+      const idx = Math.round(bpCarousel.scrollLeft / cardW);
+      bpDots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }, { passive: true });
+  }
+</script>
+</body>
+</html>
