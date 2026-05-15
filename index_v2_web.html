@@ -88,14 +88,10 @@
     position: sticky; top: 0; z-index: 100;
   }
   .logo {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-weight: var(--fontweight-bold); font-size: var(--fontsize-al);
-    color: var(--color-text-brand-primary);
+    display: inline-flex; align-items: center;
   }
-  .logo-mark {
-    width: 22px; height: 22px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--color-purple-60) 0%, var(--color-orange-60) 100%);
-    display: inline-block;
+  .logo img {
+    height: 24px; width: auto; display: block;
   }
 
   /* ── HERO ── */
@@ -222,6 +218,29 @@
     background: var(--color-bg-base);
   }
   .bp-header .section-title { margin-bottom: 8px; }
+  .bp-header-top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .bp-header-top .section-title { margin: 0; }
+  .bp-status-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 10px;
+    border-radius: var(--radius-full);
+    background: var(--color-green-10);
+    color: var(--color-green-60);
+    font-size: var(--fontsize-xxs);
+    font-weight: var(--fontweight-bold);
+    border: 1px solid transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .bp-status-badge:hover { background: #d6f5e6; }
+  .bp-status-badge .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--color-green-60);
+  }
   .bp-desc {
     font-size: var(--fontsize-sm);
     color: var(--color-text-secondary);
@@ -354,7 +373,7 @@
     font-weight: var(--fontweight-semibold);
   }
 
-  /* ── LIST SECTION (ACA Paid / 무보험) ── */
+  /* ── LIST SECTION (ACA Paid / Uninsured) ── */
   .benefit-list {
     display: flex; flex-direction: column; gap: 1px;
     background: var(--color-grey-20);
@@ -1302,6 +1321,214 @@
     text-align: center;
   }
 
+  /* ── WEBVIEW CLOSE CONFIRM SHEET ── */
+  .wv-confirm-backdrop {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 400;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.2s;
+  }
+  .wv-confirm-backdrop.show { opacity: 1; pointer-events: auto; }
+  .wv-confirm-sheet {
+    position: fixed;
+    bottom: 0; left: 50%;
+    transform: translate(-50%, 100%);
+    width: 100%; max-width: 520px;
+    background: #fff;
+    border-radius: 20px 20px 0 0;
+    padding: 24px 20px 20px;
+    z-index: 401;
+    transition: transform 0.25s ease;
+  }
+  .wv-confirm-sheet.show { transform: translate(-50%, 0); }
+  .wv-confirm-handle {
+    width: 36px; height: 4px;
+    background: var(--color-grey-30);
+    border-radius: 2px;
+    margin: 0 auto 18px;
+  }
+  .wv-confirm-title {
+    font-size: var(--fontsize-al);
+    font-weight: var(--fontweight-bold);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .wv-confirm-sub {
+    font-size: var(--fontsize-sm);
+    color: var(--color-text-secondary);
+    text-align: center;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  .wv-confirm-actions {
+    display: flex; gap: 8px;
+  }
+  .wv-confirm-actions button {
+    flex: 1;
+    padding: 14px;
+    border-radius: var(--radius-12);
+    font-size: var(--fontsize-md);
+    font-weight: var(--fontweight-semibold);
+  }
+  .wv-confirm-no {
+    background: var(--color-bg-subtle);
+    color: var(--color-text-primary);
+  }
+  .wv-confirm-yes {
+    background: var(--color-purple-60);
+    color: #fff;
+  }
+
+  /* ── ORDER COMPLETE OVERLAY ── */
+  .complete-overlay {
+    position: fixed;
+    top: 0; left: 50%;
+    transform: translate(-50%, 100%);
+    width: 100%; max-width: 520px;
+    height: 100vh;
+    background: var(--color-bg-base);
+    z-index: 330;
+    transition: transform 0.3s ease;
+    display: flex; flex-direction: column;
+  }
+  .complete-overlay.show { transform: translate(-50%, 0); }
+  .complete-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 32px 20px 24px;
+  }
+  .complete-icon-wrap {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--color-green-10);
+    color: var(--color-green-60);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+  }
+  .complete-heading {
+    text-align: center;
+    font-size: var(--fontsize-xxl);
+    font-weight: var(--fontweight-bold);
+    margin-bottom: 8px;
+  }
+  .complete-subhead {
+    text-align: center;
+    font-size: var(--fontsize-md);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+  .complete-status-card {
+    background: var(--color-bg-brand-subtlest);
+    border: 1px solid var(--color-purple-20);
+    border-radius: var(--radius-12);
+    padding: 14px 16px;
+    margin-bottom: 24px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .complete-status-label {
+    font-size: var(--fontsize-xs);
+    color: var(--color-text-tertiary);
+  }
+  .complete-status-value {
+    font-size: var(--fontsize-md);
+    font-weight: var(--fontweight-bold);
+    color: var(--color-purple-60);
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .complete-status-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--color-yellow-60);
+    box-shadow: 0 0 0 3px rgba(242,169,59,0.2);
+  }
+
+  .complete-section {
+    margin-bottom: 24px;
+  }
+  .complete-section-title {
+    font-size: var(--fontsize-ad);
+    font-weight: var(--fontweight-bold);
+    margin-bottom: 8px;
+    color: var(--color-text-primary);
+  }
+  .complete-section-desc {
+    font-size: var(--fontsize-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .complete-contact-list {
+    list-style: none;
+    padding: 0;
+    background: var(--color-bg-subtle);
+    border-radius: var(--radius-12);
+    overflow: hidden;
+  }
+  .complete-contact-list li {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--color-border-default);
+    display: flex; align-items: center; gap: 10px;
+    font-size: var(--fontsize-sm);
+  }
+  .complete-contact-list li:last-child { border-bottom: none; }
+  .complete-contact-list .label {
+    color: var(--color-text-tertiary);
+    flex-shrink: 0;
+    width: 70px;
+  }
+  .complete-contact-list .value {
+    color: var(--color-text-primary);
+    font-weight: var(--fontweight-medium);
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .complete-contact-list a.value {
+    color: var(--color-purple-60);
+    text-decoration: underline;
+  }
+  .complete-steps {
+    list-style: none;
+    padding: 0;
+    counter-reset: step;
+  }
+  .complete-steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 10px 0 10px 36px;
+    font-size: var(--fontsize-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+  .complete-steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 10px;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--color-bg-brand-subtle);
+    color: var(--color-purple-60);
+    display: flex; align-items: center; justify-content: center;
+    font-size: var(--fontsize-xs);
+    font-weight: var(--fontweight-bold);
+  }
+  .complete-footer {
+    background: #fff;
+    border-top: 1px solid var(--color-border-default);
+    padding: 14px 20px 20px;
+    flex-shrink: 0;
+  }
+  .complete-cta {
+    width: 100%;
+    background: var(--color-purple-60);
+    color: #fff;
+    font-weight: var(--fontweight-bold);
+    font-size: var(--fontsize-ad);
+    padding: 14px;
+    border-radius: var(--radius-12);
+  }
+
   /* ── DROPDOWN sheet ── */
   .sheet-backdrop {
     position: fixed; inset: 0;
@@ -1352,8 +1579,7 @@
 <!-- ── HEADER ── -->
 <header class="web-header">
   <div class="logo">
-    <span class="logo-mark"></span>
-    <span>bomee</span>
+    <img src="./assets/logo-signature.png" alt="bomee">
   </div>
 </header>
 
@@ -1371,7 +1597,7 @@
     </div>
   </div>
   <div class="hero-image">
-    <!-- 사용자: ./assets/hero.png 파일을 같은 폴더에 넣어주세요 -->
+    <!-- Note: drop ./assets/hero.png into the same folder -->
     <img src="./assets/hero.png" alt="Mom and baby" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
     <div class="hero-image-placeholder" style="display:none;">hero.png</div>
   </div>
@@ -1400,9 +1626,15 @@
 <!-- ── ACA COVERAGE - BREAST PUMPS ── -->
 <div id="aca-free-section">
   <div class="bp-header">
-    <h2 class="section-title">ACA coverage - Breast Pumps</h2>
+    <div class="bp-header-top">
+      <h2 class="section-title">ACA coverage - Breast Pumps</h2>
+      <button class="bp-status-badge" id="bpStatusBadge" onclick="reopenCompleteOverlay()" style="display:none;" aria-label="View submitted order">
+        <span class="dot"></span>
+        Submitted
+      </button>
+    </div>
     <p class="bp-desc">
-      유축기의 가장 이상적인 신청 기간은 28주~36주 사이로 지금이 적기예요. 유축기 신청 절차는 …<a href="#" class="more-link">More</a>
+      The best time to order your breast pump is between weeks 28–36 of pregnancy — right around now. Here's how the process works …<a href="#" class="more-link">More</a>
     </p>
   </div>
   <div class="bp-carousel-wrap">
@@ -1412,56 +1644,40 @@
       <div class="bp-card">
         <div class="bp-card-label">Insurance covered</div>
         <div class="bp-card-image">
-          <img src="./assets/pump1.png" alt="Lansinoh 3.0 Lifestyle Set" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+          product image
         </div>
         <div class="bp-card-title">Lansinoh 3.0 Lifestyle Set</div>
         <button class="bp-card-cta" onclick="openOrderOverlay(this)">Breastpumps.com — $0.00</button>
-        <div class="bp-card-alts">
-          <a href="#">Yummy Mummy — $0.00</a>
-          <a href="#">Babylist — $15.00</a>
-        </div>
       </div>
 
       <!-- Card 2 -->
       <div class="bp-card">
         <div class="bp-card-label">Insurance covered</div>
         <div class="bp-card-image">
-          <img src="./assets/pump2.png" alt="Spectra S1 Plus" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+          product image
         </div>
         <div class="bp-card-title">Spectra S1 Plus</div>
-        <button class="bp-card-cta" onclick="openOrderOverlay(this)">Aeroflow — $0.00</button>
-        <div class="bp-card-alts">
-          <a href="#">Babylist — $0.00</a>
-          <a href="#">Yummy Mummy — $25.00</a>
-        </div>
+        <button class="bp-card-cta" onclick="openOrderOverlay(this)">Breastpumps.com — $0.00</button>
       </div>
 
       <!-- Card 3 -->
       <div class="bp-card">
         <div class="bp-card-label">Insurance covered</div>
         <div class="bp-card-image">
-          <img src="./assets/pump3.png" alt="Medela Pump In Style" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+          product image
         </div>
         <div class="bp-card-title">Medela Pump In Style</div>
         <button class="bp-card-cta" onclick="openOrderOverlay(this)">Breastpumps.com — $0.00</button>
-        <div class="bp-card-alts">
-          <a href="#">Aeroflow — $0.00</a>
-          <a href="#">Babylist — $35.00</a>
-        </div>
       </div>
 
       <!-- Card 4 -->
       <div class="bp-card">
         <div class="bp-card-label">Insurance covered</div>
         <div class="bp-card-image">
-          <img src="./assets/pump4.png" alt="Elvie Stride" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+          product image
         </div>
         <div class="bp-card-title">Elvie Stride</div>
-        <button class="bp-card-cta" onclick="openOrderOverlay(this)">Aeroflow — $0.00</button>
-        <div class="bp-card-alts">
-          <a href="#">Yummy Mummy — $50.00</a>
-          <a href="#">Babylist — $75.00</a>
-        </div>
+        <button class="bp-card-cta" onclick="openOrderOverlay(this)">Breastpumps.com — $0.00</button>
       </div>
 
     </div>
@@ -1476,7 +1692,7 @@
   <div class="bp-product-list">
     <div class="bp-product-row">
       <div class="bp-product-thumb">
-        <img src="./assets/ameda-glo.png" alt="Ameda Glo" onerror="this.style.display='none';">
+        
       </div>
       <div class="bp-product-info">
         <div class="bp-product-name">Ameda Glo</div>
@@ -1486,27 +1702,27 @@
     </div>
     <div class="bp-product-row">
       <div class="bp-product-thumb">
-        <img src="./assets/willow-go.png" alt="Willow Go" onerror="this.style.display='none';">
+        
       </div>
       <div class="bp-product-info">
         <div class="bp-product-name">Willow Go</div>
-        <div class="bp-product-supplier">aeroflow.com</div>
+        <div class="bp-product-supplier">breastpumps.com</div>
       </div>
       <span class="bp-product-price">$0</span>
     </div>
     <div class="bp-product-row">
       <div class="bp-product-thumb">
-        <img src="./assets/motif-luna.png" alt="Motif Luna" onerror="this.style.display='none';">
+        
       </div>
       <div class="bp-product-info">
         <div class="bp-product-name">Motif Luna</div>
-        <div class="bp-product-supplier">babylist.com</div>
+        <div class="bp-product-supplier">breastpumps.com</div>
       </div>
       <span class="bp-product-price">$0</span>
     </div>
   </div>
 
-  <button class="see-all-btn" onclick="openPumpListOverlay()">전체 52개의 상품 확인하기</button>
+  <button class="see-all-btn" onclick="openPumpListOverlay()">Browse all 52 pumps</button>
 </div>
 
 <!-- ── ACA COVERAGE - FREE (LIST) ── -->
@@ -1543,22 +1759,22 @@
   <div class="benefit-list">
     <div class="benefit-row">
       <div class="benefit-row-content">
-        <div class="benefit-row-title">분만 입원, 경막외 마취, 제왕절개 등</div>
-        <div class="benefit-row-desc">연간 공제액에 급여 부담금 적용이 가능</div>
+        <div class="benefit-row-title">Labor &amp; delivery, epidural, C-section, etc.</div>
+        <div class="benefit-row-desc">Subject to your annual deductible and copay</div>
       </div>
       <span class="benefit-row-action">View</span>
     </div>
     <div class="benefit-row">
       <div class="benefit-row-content">
-        <div class="benefit-row-title">합병/계열별</div>
-        <div class="benefit-row-desc">고위험 진단 지속 시 조건부</div>
+        <div class="benefit-row-title">Pregnancy complications &amp; related conditions</div>
+        <div class="benefit-row-desc">Conditionally covered with an ongoing high-risk diagnosis</div>
       </div>
       <span class="benefit-row-action">View</span>
     </div>
     <div class="benefit-row">
       <div class="benefit-row-content">
-        <div class="benefit-row-title">분만 전후 정신 건강 상담</div>
-        <div class="benefit-row-desc">고위험 진단 지속 시 조건부로 커버가 가능</div>
+        <div class="benefit-row-title">Perinatal &amp; postpartum mental health counseling</div>
+        <div class="benefit-row-desc">Conditionally covered with an ongoing high-risk diagnosis</div>
       </div>
       <span class="benefit-row-action">View</span>
     </div>
@@ -1571,22 +1787,22 @@
   <div class="benefit-list">
     <div class="benefit-row">
       <div class="benefit-row-content">
-        <div class="benefit-row-title">SEP(특별 가입 기간)에 보험 가입</div>
-        <div class="benefit-row-desc">QLE 인정하는 9개 주 + DV 가능 시 지금 마지막 ACA 플랜 가입 가능</div>
+        <div class="benefit-row-title">Enroll during a Special Enrollment Period (SEP)</div>
+        <div class="benefit-row-desc">Available in 9 states recognizing QLEs + domestic-violence cases for last-call ACA enrollment</div>
       </div>
       <span class="benefit-row-action">View</span>
     </div>
     <div class="benefit-row">
       <div class="benefit-row-content">
         <div class="benefit-row-title">Medicaid</div>
-        <div class="benefit-row-desc">함께 수 40+ (DC 포함), FPL 138% 이하 소득은 면접 가입 가능</div>
+        <div class="benefit-row-desc">Available in 40+ states (incl. DC); income at or below 138% FPL may qualify</div>
       </div>
       <span class="benefit-row-action">View</span>
     </div>
     <div class="benefit-row">
       <div class="benefit-row-content">
-        <div class="benefit-row-title">Fallback 프로그램</div>
-        <div class="benefit-row-desc">WIC 영양 보충 프로그램, FQHC 슬라이딩 스케일을 잠정으로 도움 받기</div>
+        <div class="benefit-row-title">Fallback programs</div>
+        <div class="benefit-row-desc">Tap WIC nutrition assistance and FQHC sliding-scale care as interim support</div>
       </div>
       <span class="benefit-row-action">View</span>
     </div>
@@ -1705,15 +1921,15 @@
   <div class="fsa-list">
     <div class="fsa-row">
       <div class="fsa-row-content">
-        <div class="fsa-row-title">임산부 복대</div>
-        <div class="fsa-row-desc">분만 입원, 경막외 마취, 제왕절개 등 연간 공제액에 급여 부담금 적용이 가능</div>
+        <div class="fsa-row-title">Maternity belly band</div>
+        <div class="fsa-row-desc">Eligible for FSA/HSA reimbursement; consult your plan for coverage details</div>
       </div>
       <svg class="chev" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l4 4-4 4"/></svg>
     </div>
     <div class="fsa-row">
       <div class="fsa-row-content">
-        <div class="fsa-row-title">임산부 바디 필로우</div>
-        <div class="fsa-row-desc">의사 처방 소견서 필요</div>
+        <div class="fsa-row-title">Maternity body pillow</div>
+        <div class="fsa-row-desc">Letter of medical necessity required</div>
       </div>
       <svg class="chev" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l4 4-4 4"/></svg>
     </div>
@@ -1727,8 +1943,7 @@
   </div>
   <div class="footer-brand">
     <div class="logo">
-      <span class="logo-mark"></span>
-      <span>bomee</span>
+      <img src="./assets/logo-signature.png" alt="bomee">
     </div>
   </div>
   <div class="footer-meta">
@@ -1789,49 +2004,43 @@
     <div class="pump-grid" id="pumpGrid">
       <!-- Card 1 -->
       <div class="pump-grid-card">
-        <div class="pump-grid-image"><img src="./assets/pump-list-1.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-image">image</div>
         <div class="pump-grid-brand">Ardo</div>
         <div class="pump-grid-name">Meiia – Wearable Pump, No Tubes or Wires</div>
         <div class="pump-grid-rating"><span class="star">★</span> 4.7 <span>(189)</span></div>
         <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Breastpumps.com — $0.00</button>
-        <div class="pump-grid-alts"><a href="#">Babylist — $0.00</a></div>
       </div>
 
       <!-- Card 2 -->
       <div class="pump-grid-card">
-        <div class="pump-grid-image"><img src="./assets/pump-list-2.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-image">image</div>
         <div class="pump-grid-brand">Ameda</div>
         <div class="pump-grid-name">Glo</div>
         <div class="pump-grid-rating"><span class="star">★</span> 4.4 <span>(312)</span></div>
         <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Breastpumps.com — $0.00</button>
-        <div class="pump-grid-alts">
-          <a href="#">Yummy Mummy — $0.00</a>
-          <a href="#">Babylist — $15.00</a>
-        </div>
       </div>
 
       <!-- Card 3 (no alt suppliers) -->
       <div class="pump-grid-card">
-        <div class="pump-grid-image"><img src="./assets/pump-list-3.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-image">image</div>
         <div class="pump-grid-brand">Ameda</div>
         <div class="pump-grid-name">Mya Joy Basic Double Electric</div>
         <div class="pump-grid-rating"><span class="star">★</span> 4.3 <span>(78)</span></div>
-        <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Aeroflow — $0.00</button>
+        <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Breastpumps.com — $0.00</button>
       </div>
 
       <!-- Card 4 (upgrade fee) -->
       <div class="pump-grid-card">
-        <div class="pump-grid-image"><img src="./assets/pump-list-4.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-image">image</div>
         <div class="pump-grid-brand">Ameda</div>
         <div class="pump-grid-name">Mya Joy with Tote, Cooler &amp; Manual</div>
         <div class="pump-grid-rating"><span class="star">★</span> 4.6 <span>(215)</span></div>
         <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Breastpumps.com — $50.00</button>
-        <div class="pump-grid-alts"><a href="#">Yummy Mummy — $55.00</a></div>
       </div>
 
       <!-- Card 5 (no alts) -->
       <div class="pump-grid-card">
-        <div class="pump-grid-image"><img src="./assets/pump-list-5.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-image">image</div>
         <div class="pump-grid-brand">Ameda</div>
         <div class="pump-grid-name">Mya Joy PLUS Double Electric</div>
         <div class="pump-grid-rating"><span class="star">★</span> 4.5 <span>(142)</span></div>
@@ -1840,40 +2049,34 @@
 
       <!-- Card 6 (upgrade fee + alt) -->
       <div class="pump-grid-card">
-        <div class="pump-grid-image"><img src="./assets/pump-list-6.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-image">image</div>
         <div class="pump-grid-brand">Ameda</div>
         <div class="pump-grid-name">Mya Joy PLUS with Tote Bag</div>
         <div class="pump-grid-rating"><span class="star">★</span> 4.5 <span>(96)</span></div>
-        <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Aeroflow — $25.00</button>
-        <div class="pump-grid-alts"><a href="#">Babylist — $35.00</a></div>
+        <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Breastpumps.com — $25.00</button>
       </div>
 
       <!-- Card 7 -->
       <div class="pump-grid-card">
-        <div class="pump-grid-image"><img src="./assets/pump-list-7.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-image">image</div>
         <div class="pump-grid-brand">Ameda</div>
         <div class="pump-grid-name">Mya Joy with Large Tote</div>
         <div class="pump-grid-rating"><span class="star">★</span> 4.4 <span>(58)</span></div>
         <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Breastpumps.com — $0.00</button>
-        <div class="pump-grid-alts"><a href="#">Yummy Mummy — $10.00</a></div>
       </div>
 
       <!-- Card 8 (3 suppliers) -->
       <div class="pump-grid-card">
-        <div class="pump-grid-image"><img src="./assets/pump-list-8.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-image">image</div>
         <div class="pump-grid-brand">Ardo</div>
         <div class="pump-grid-name">Aiyssa Double</div>
         <div class="pump-grid-rating"><span class="star">★</span> 4.6 <span>(167)</span></div>
         <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Breastpumps.com — $0.00</button>
-        <div class="pump-grid-alts">
-          <a href="#">Babylist — $0.00</a>
-          <a href="#">Yummy Mummy — $0.00</a>
-        </div>
       </div>
 
       <!-- Card 9 (upgrade, no alts) -->
       <div class="pump-grid-card">
-        <div class="pump-grid-image"><img src="./assets/pump-list-9.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-image">image</div>
         <div class="pump-grid-brand">Ardo</div>
         <div class="pump-grid-name">Aiyssa Double with Manual Pump</div>
         <div class="pump-grid-rating"><span class="star">★</span> 4.5 <span>(74)</span></div>
@@ -1882,15 +2085,11 @@
 
       <!-- Card 10 -->
       <div class="pump-grid-card">
-        <div class="pump-grid-image"><img src="./assets/pump-list-10.png" alt="" onerror="this.style.display='none'; this.parentElement.textContent='image';"></div>
+        <div class="pump-grid-image">image</div>
         <div class="pump-grid-brand">Lansinoh</div>
         <div class="pump-grid-name">3.0 Lifestyle Set</div>
         <div class="pump-grid-rating"><span class="star">★</span> 4.8 <span>(421)</span></div>
         <button class="pump-grid-cta" onclick="selectPumpFromList(this)">Breastpumps.com — $0.00</button>
-        <div class="pump-grid-alts">
-          <a href="#">Yummy Mummy — $0.00</a>
-          <a href="#">Babylist — $15.00</a>
-        </div>
       </div>
     </div>
   </div>
@@ -1924,7 +2123,7 @@
       <div class="order-carousel">
         <div class="order-card">
           <div class="order-card-image">
-            <img src="./assets/ameda-premium.png" alt="Ameda Premium Bundle" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+            product image
           </div>
           <div class="order-card-name">Ameda Premium Bundle</div>
           <div class="order-card-price">$84.99</div>
@@ -1942,13 +2141,13 @@
 
         <div class="order-card">
           <div class="order-card-image">
-            <img src="./assets/ameda-ultimate.png" alt="Ameda Ultimate Bundle" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+            product image
           </div>
           <div class="order-card-name">Ameda Ultimate Bundle</div>
           <div class="order-card-price">$144.99</div>
           <span class="order-card-details" onclick="toggleDetails(this)">See Details</span>
           <div class="order-card-details-panel">
-            <div class="placeholder">실제 번들 구성품 데이터 입력 필요</div>
+            <div class="placeholder">Bundle items TBD — actual data needed</div>
           </div>
           <button class="order-card-cta" onclick="toggleAdded(this)">Add to Order</button>
         </div>
@@ -1961,7 +2160,7 @@
       <div class="order-carousel">
         <div class="order-card">
           <div class="order-card-image">
-            <img src="./assets/willow-wave.png" alt="Willow Wave Wearable Manual Breast Pump" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+            product image
           </div>
           <div class="order-card-name">Willow Wave Wearable Manual Breast Pump</div>
           <div class="order-card-price">$34.99</div>
@@ -1971,7 +2170,7 @@
 
         <div class="order-card">
           <div class="order-card-image">
-            <img src="./assets/leggings.png" alt="Pregnancy Support Leggings" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+            product image
           </div>
           <div class="order-card-name">Pregnancy Support Leggings</div>
           <div class="order-card-price">$45.99</div>
@@ -1987,7 +2186,7 @@
 
         <div class="order-card">
           <div class="order-card-image">
-            <img src="./assets/recovery-garment.png" alt="Postpartum Recovery Garment" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+            product image
           </div>
           <div class="order-card-name">Postpartum Recovery Garment, C-Section &amp; Natural Birth, Nude</div>
           <div class="order-card-price">$49.99</div>
@@ -2003,7 +2202,7 @@
 
         <div class="order-card">
           <div class="order-card-image">
-            <img src="./assets/belly-band.png" alt="Pregnancy Belly Support Band Black" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+            product image
           </div>
           <div class="order-card-name">Pregnancy Belly Support Band Black</div>
           <div class="order-card-price">$39.99</div>
@@ -2019,7 +2218,7 @@
 
         <div class="order-card">
           <div class="order-card-image">
-            <img src="./assets/compression-socks.png" alt="Compression Socks" onerror="this.style.display='none'; this.parentElement.textContent='product image';">
+            product image
           </div>
           <div class="order-card-name">Compression Socks Crew One Size</div>
           <div class="order-card-price">$34.99</div>
@@ -2070,20 +2269,20 @@
     <div class="summary-section">
       <div class="summary-section-title">Add-on items</div>
       <div id="summaryItemList">
-        <div class="summary-empty">추가한 옵션이 없습니다.</div>
+        <div class="summary-empty">No add-ons selected.</div>
       </div>
     </div>
 
     <div class="summary-total-row">
-      <span class="summary-total-label">Total <span id="summaryAddCount" style="color:var(--color-text-tertiary); font-weight:var(--fontweight-regular); font-size:var(--fontsize-xs);">(펌프 + 0개 add-on)</span></span>
+      <span class="summary-total-label">Total <span id="summaryAddCount" style="color:var(--color-text-tertiary); font-weight:var(--fontweight-regular); font-size:var(--fontsize-xs);">(pump + 0 add-ons)</span></span>
       <span class="summary-total-value">$<span id="summaryTotalNum">0.00</span></span>
     </div>
   </div>
 
   <div class="summary-footer">
-    <button class="summary-cta" onclick="confirmOrderToWebview()">주문 확인 완료</button>
+    <button class="summary-cta" onclick="confirmOrderToWebview()">Confirm order</button>
     <div class="summary-disclaimer">
-      이 주문은 제휴사 <strong>breastpumps.com</strong>으로 전달됩니다. 보험 신청, 처방전 발급, 청구, 결제 및 배송 등 모든 거래 절차는 breastpumps.com이 직접 처리하며, Bomee는 해당 절차에 관여하지 않습니다. Bomee는 정보 제공 서비스이며, 의료기기 판매자, 보험 청구 대행자, 의료 제공자가 아닙니다. 최종 보험 적용 여부와 본인 부담금은 귀하의 보험 약관에 따라 달라질 수 있습니다.
+      Your order will be transmitted to our partner, <strong>breastpumps.com</strong>. All subsequent steps — insurance verification, prescription processing, claims, payment, and shipping — are handled directly by breastpumps.com. Bomee does not participate in any of those processes. Bomee provides informational services only and is not a medical device supplier, insurance claims agent, or healthcare provider. Final insurance coverage and out-of-pocket costs may vary based on the terms of your insurance plan.
     </div>
   </div>
 </div>
@@ -2104,12 +2303,12 @@
     </div>
   </div>
   <div class="webview-body">
-    <!-- 사용자: ./assets/breastpumps-webview.png 파일을 같은 폴더에 넣으면 자동 표시됨. 없으면 아래 mock 폼이 보임 -->
+    <!-- Note: drop ./assets/breastpumps-webview.png in the same folder to display the actual screenshot. Otherwise the mock form below is shown. -->
     <img class="webview-screenshot" src="./assets/breastpumps-webview.png" alt="breastpumps.com Insurance Form" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
     <div class="webview-fallback" style="display:none;">
       <div class="placeholder-note">
-        실제 화면은 외부 사이트(breastpumps.com)에서 열립니다. 와이어프레임에서는 양식 예시로 대체합니다.<br>
-        <small>실제 스크린샷을 <code>./assets/breastpumps-webview.png</code>에 넣으면 그대로 표시됩니다.</small>
+        The actual screen opens on the external site (breastpumps.com). This wireframe shows a sample form in its place.<br>
+        <small>Drop the actual screenshot at <code>./assets/breastpumps-webview.png</code> to display it directly.</small>
       </div>
       <div class="step-pill"><span class="num">4</span><strong>Mom's Information</strong></div>
 
@@ -2142,6 +2341,68 @@
         <textarea class="field-input" rows="3" placeholder=""></textarea>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- ── WEBVIEW CLOSE CONFIRMATION SHEET ── -->
+<div class="wv-confirm-backdrop" id="wvConfirmBackdrop" onclick="hideWebviewConfirm()"></div>
+<div class="wv-confirm-sheet" id="wvConfirmSheet">
+  <div class="wv-confirm-handle"></div>
+  <div class="wv-confirm-title">Did you complete your order on breastpumps.com?</div>
+  <div class="wv-confirm-sub">Tap "Yes, done" if you submitted your order, or "Not yet" to return to the form.</div>
+  <div class="wv-confirm-actions">
+    <button class="wv-confirm-no" onclick="declineCompleted()">Not yet</button>
+    <button class="wv-confirm-yes" onclick="confirmCompleted()">Yes, done</button>
+  </div>
+</div>
+
+<!-- ── ORDER COMPLETE OVERLAY ── -->
+<div class="complete-overlay" id="completeOverlay">
+  <div class="complete-body">
+    <div class="complete-icon-wrap">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12l4 4L19 7"/>
+      </svg>
+    </div>
+    <h1 class="complete-heading">Your breast pump request has been submitted!</h1>
+    <p class="complete-subhead">Your selection was sent to breastpumps.com.<br>They will take it from here.</p>
+
+    <div class="complete-section">
+      <h2 class="complete-section-title">Partner contact</h2>
+      <p class="complete-section-desc">For any questions about your order — please contact breastpumps.com directly.</p>
+      <ul class="complete-contact-list">
+        <li>
+          <span class="label">Website</span>
+          <a class="value" href="https://breastpumps.com" target="_blank" rel="noopener">breastpumps.com</a>
+        </li>
+        <li>
+          <span class="label">Phone</span>
+          <a class="value" href="tel:+18005550100">1 (800) 555-0100</a>
+        </li>
+        <li>
+          <span class="label">Email</span>
+          <a class="value" href="mailto:support@breastpumps.com">support@breastpumps.com</a>
+        </li>
+        <li>
+          <span class="label">Hours</span>
+          <span class="value">Mon–Fri, 9am–5pm ET</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="complete-section">
+      <h2 class="complete-section-title">More benefits available this trimester</h2>
+      <p class="complete-section-desc">Don't stop here — your pregnancy may unlock other ACA-covered services, free preventive care, and support programs you can use right now.</p>
+    </div>
+
+    <div style="text-align: center; padding: 20px 0 0;">
+      <button onclick="resetOrderState()" style="background: none; border: none; color: var(--color-text-tertiary); font-size: var(--fontsize-xxs); text-decoration: underline; cursor: pointer;">
+        Reset application status (demo only)
+      </button>
+    </div>
+  </div>
+  <div class="complete-footer">
+    <button class="complete-cta" onclick="finishOrder()">Explore other benefits</button>
   </div>
 </div>
 
@@ -2230,7 +2491,7 @@
 
   /* ── Body scroll lock helper (any overlay open → lock) ── */
   function _updateBodyScrollLock() {
-    const anyOpen = document.querySelector('.pump-list-overlay.show, .order-overlay.show, .summary-overlay.show, .webview-overlay.show');
+    const anyOpen = document.querySelector('.pump-list-overlay.show, .order-overlay.show, .summary-overlay.show, .webview-overlay.show, .complete-overlay.show');
     document.body.style.overflow = anyOpen ? 'hidden' : '';
   }
 
@@ -2322,7 +2583,7 @@
 
     const list = document.getElementById('summaryItemList');
     if (addedItems.length === 0) {
-      list.innerHTML = '<div class="summary-empty">추가한 옵션이 없습니다.</div>';
+      list.innerHTML = '<div class="summary-empty">No add-ons selected.</div>';
     } else {
       list.innerHTML = addedItems.map(it => {
         const optTxt = it.optLabel && it.optVal ? `<div style="font-size:var(--fontsize-xxs); color:var(--color-text-tertiary); margin-top:2px;">${it.optLabel}: ${it.optVal}</div>` : '';
@@ -2331,7 +2592,7 @@
     }
     const total = document.getElementById('orderTotal').textContent;
     document.getElementById('summaryTotalNum').textContent = total;
-    document.getElementById('summaryAddCount').textContent = `(펌프 + ${addedItems.length}개 add-on)`;
+    document.getElementById('summaryAddCount').textContent = `(pump + ${addedItems.length} add-ons)`;
 
     document.getElementById('summaryOverlay').classList.add('show');
     _updateBodyScrollLock();
@@ -2346,9 +2607,63 @@
     document.getElementById('webviewOverlay').classList.add('show');
     _updateBodyScrollLock();
   }
+  // When user taps WebView's back arrow, ask whether they finished the order on breastpumps.com.
+  // (We can't detect WebView completion directly without partner-side webhooks or postMessage cooperation,
+  //  so we rely on user self-report for now. Production: add webhook integration with breastpumps.com.)
   function closeWebview() {
+    showWebviewConfirm();
+  }
+  function showWebviewConfirm() {
+    document.getElementById('wvConfirmBackdrop').classList.add('show');
+    document.getElementById('wvConfirmSheet').classList.add('show');
+  }
+  function hideWebviewConfirm() {
+    document.getElementById('wvConfirmBackdrop').classList.remove('show');
+    document.getElementById('wvConfirmSheet').classList.remove('show');
+  }
+  function declineCompleted() {
+    // User tapped "Not yet" → just close the WebView, return to summary
+    hideWebviewConfirm();
     document.getElementById('webviewOverlay').classList.remove('show');
     _updateBodyScrollLock();
+  }
+  // Session-level state. In production this would come from the backend
+  // (ideally a webhook from breastpumps.com confirming the actual submission).
+  const orderState = { submitted: false };
+  function _updateBpStatusBadge() {
+    const badge = document.getElementById('bpStatusBadge');
+    if (badge) badge.style.display = orderState.submitted ? 'inline-flex' : 'none';
+  }
+  function reopenCompleteOverlay() {
+    // Re-open the Order Complete screen from the main page badge
+    document.getElementById('completeOverlay').classList.add('show');
+    _updateBodyScrollLock();
+  }
+  function resetOrderState() {
+    // Demo helper: clear self-reported submission and hide the badge on main page
+    orderState.submitted = false;
+    _updateBpStatusBadge();
+    document.getElementById('completeOverlay').classList.remove('show');
+    _updateBodyScrollLock();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function confirmCompleted() {
+    // User tapped "Yes, done" → close WebView, mark submitted, open order-complete screen
+    hideWebviewConfirm();
+    document.getElementById('webviewOverlay').classList.remove('show');
+    orderState.submitted = true;
+    _updateBpStatusBadge();
+    document.getElementById('completeOverlay').classList.add('show');
+    _updateBodyScrollLock();
+  }
+  function finishOrder() {
+    // Close all overlays and return to the main page; scroll to top so user can browse other benefits
+    document.getElementById('completeOverlay').classList.remove('show');
+    document.getElementById('summaryOverlay').classList.remove('show');
+    document.getElementById('orderOverlay').classList.remove('show');
+    document.getElementById('pumpListOverlay').classList.remove('show');
+    _updateBodyScrollLock();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   function toggleDetails(el) {
     const card = el.closest('.order-card');
