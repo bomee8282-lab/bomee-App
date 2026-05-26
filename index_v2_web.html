@@ -1380,6 +1380,40 @@
     color: #fff;
   }
 
+  /* ── DUPLICATE-CHECK RESULT SHEET (Yes case) ── */
+  .dup-result-icon-wrap {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: #FFF1E6;
+    color: #FD6B17;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 12px;
+  }
+
+  /* ── TOAST BAR ── */
+  .toast-bar {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    background: rgba(20, 20, 28, 0.92);
+    color: #fff;
+    font-size: var(--fontsize-sm);
+    font-weight: var(--fontweight-medium);
+    padding: 12px 18px;
+    border-radius: 999px;
+    z-index: 500;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.25s ease;
+    white-space: nowrap;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  }
+  .toast-bar.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
   /* ── ORDER COMPLETE OVERLAY ── */
   .complete-overlay {
     position: fixed;
@@ -2356,6 +2390,39 @@
   </div>
 </div>
 
+<!-- ── DUPLICATE-CHECK SHEET (shown before sending to breastpumps.com) ── -->
+<div class="wv-confirm-backdrop" id="dupCheckBackdrop" onclick="hideDupCheck()"></div>
+<div class="wv-confirm-sheet" id="dupCheckSheet">
+  <div class="wv-confirm-handle"></div>
+  <div class="wv-confirm-title">Have you received a breast pump through insurance in the last 3 months?</div>
+  <div class="wv-confirm-sub">Most insurance plans cover one pump per pregnancy. Submitting a duplicate request may be declined by your insurer.</div>
+  <div class="wv-confirm-actions">
+    <button class="wv-confirm-no" onclick="dupCheckYes()">Yes, I have</button>
+    <button class="wv-confirm-yes" onclick="dupCheckNo()">No, I haven't</button>
+  </div>
+</div>
+
+<!-- ── DUPLICATE DETECTED RESULT SHEET ── -->
+<div class="wv-confirm-backdrop" id="dupResultBackdrop"></div>
+<div class="wv-confirm-sheet" id="dupResultSheet">
+  <div class="wv-confirm-handle"></div>
+  <div class="dup-result-icon-wrap">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="12" y1="8" x2="12" y2="13"/>
+      <line x1="12" y1="16" x2="12.01" y2="16"/>
+    </svg>
+  </div>
+  <div class="wv-confirm-title">You may already have a pump on record</div>
+  <div class="wv-confirm-sub">Since you've received a breast pump through insurance within the last 3 months, we can't process a duplicate request. Please contact your insurer if you believe this is incorrect.</div>
+  <div class="wv-confirm-actions">
+    <button class="wv-confirm-yes" style="flex:1;" onclick="closeDupResult()">Back to main</button>
+  </div>
+</div>
+
+<!-- ── TOAST BAR ── -->
+<div class="toast-bar" id="toastBar">Redirecting to supplier…</div>
+
 <!-- ── ORDER COMPLETE OVERLAY ── -->
 <div class="complete-overlay" id="completeOverlay">
   <div class="complete-body">
@@ -2602,10 +2669,54 @@
     _updateBodyScrollLock();
   }
 
-  /* ── Confirm → external WebView (breastpumps.com) ── */
+  /* ── Confirm → duplicate-check → external WebView (breastpumps.com) ── */
   function confirmOrderToWebview() {
-    document.getElementById('webviewOverlay').classList.add('show');
+    // Step 1: Ask whether the user has already received a pump in the last 3 months.
+    // Most ACA-covered plans only allow one pump per pregnancy, so we want to block
+    // obvious duplicates before handing off to breastpumps.com.
+    openDupCheck();
+  }
+  function openDupCheck() {
+    document.getElementById('dupCheckBackdrop').classList.add('show');
+    document.getElementById('dupCheckSheet').classList.add('show');
+  }
+  function hideDupCheck() {
+    document.getElementById('dupCheckBackdrop').classList.remove('show');
+    document.getElementById('dupCheckSheet').classList.remove('show');
+  }
+  function dupCheckYes() {
+    // User has already received a pump → block the request, show explanation.
+    hideDupCheck();
+    document.getElementById('dupResultBackdrop').classList.add('show');
+    document.getElementById('dupResultSheet').classList.add('show');
+  }
+  function closeDupResult() {
+    // Close the duplicate-detected sheet AND all open order overlays, return to main.
+    document.getElementById('dupResultBackdrop').classList.remove('show');
+    document.getElementById('dupResultSheet').classList.remove('show');
+    document.getElementById('summaryOverlay').classList.remove('show');
+    document.getElementById('orderOverlay').classList.remove('show');
+    document.getElementById('pumpListOverlay').classList.remove('show');
     _updateBodyScrollLock();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function dupCheckNo() {
+    // User hasn't received a pump → show toast, then open the WebView handoff.
+    hideDupCheck();
+    showToast('Redirecting to supplier…');
+    setTimeout(() => {
+      document.getElementById('webviewOverlay').classList.add('show');
+      _updateBodyScrollLock();
+    }, 700);
+  }
+  let _toastTimer = null;
+  function showToast(msg, duration = 1800) {
+    const t = document.getElementById('toastBar');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    if (_toastTimer) clearTimeout(_toastTimer);
+    _toastTimer = setTimeout(() => t.classList.remove('show'), duration);
   }
   // When user taps WebView's back arrow, ask whether they finished the order on breastpumps.com.
   // (We can't detect WebView completion directly without partner-side webhooks or postMessage cooperation,
